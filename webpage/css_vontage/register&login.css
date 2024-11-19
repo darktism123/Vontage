@@ -233,5 +233,20 @@ footer {
         height: 40px;
     }
 
-    
+  .feedback {
+    display: block;
+    min-height: 1em; /* Reserves space for feedback messages */
+    font-size: 0.9em;
+    margin-top: 5px;
+    transition: color 0.3s ease; /* Smooth color transitions */
+}
+
+.feedback.green {
+    color: green;
+}
+
+.feedback.red {
+    color: red;
+}
+
 }
