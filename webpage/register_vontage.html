@@ -14,27 +14,27 @@
             <img src="VONTAGE.png" alt="logo" style="width: 15%;">
         </a>
     </nav>
-
-    <div class="container">
-        <form action="http://localhost/Vontage/System/connect.php" method="post">
-            <h1>REGISTER</h1>
-            <div class="form-group">
-                <input type="text" id="username" name="Username" placeholder="Enter your username" required>
-                <i class="fas fa-user"></i> <!-- ใช้ไอคอน -->
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" name="Email" placeholder="Enter your email" required>
-                <i class="fas fa-envelope"></i>
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" name="Password" placeholder="Password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least 8 characters, including uppercase, lowercase letters, and numbers">
-                <i class="fas fa-lock"></i>
-            </div>
-            <button id="registerButton">
-                <i class="fas fa-arrow-right"></i> <!-- ไอคอนลูกศร -->
-            </button>
-            <h5>Alrady have an account? <a href="login_vontage.html">Login</a></h5>
-    </div>
+    <form action="http://localhost/Vontage/System/connect.php" method="post">
+        <div class="container">
+                <h1>REGISTER</h1>
+                <div class="form-group">
+                    <input type="text" id="username" name="Username" placeholder="Username" required>
+                    <i class="fas fa-user"></i> <!-- ใช้ไอคอน -->
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="Email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="Password" placeholder="Password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least 8 characters, including uppercase, lowercase letters, and numbers">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button id="registerButton">
+                    <i class="fas fa-arrow-right"></i> <!-- ไอคอนลูกศร -->
+                </button>
+                <h5>Alrady have an account? <a href="login_vontage.html">Login</a></h5>
+        </div>
+    </form>
 
     <footer>
         <div class="footer-section">
