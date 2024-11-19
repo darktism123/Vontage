@@ -1,6 +1,12 @@
-.banner{
-    margin: 0px;
+body{
     padding: 0px;
-    width: 100%;
-    height: 100vh;
+    margin: 0px;
+}
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content_banner{
+    margin-left: 5%;
 }
