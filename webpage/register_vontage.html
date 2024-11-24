@@ -8,25 +8,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 </head>
-<body style="background-image:url('./background_test.jpg')">
+<body style="background-image:url('image_vontage/background_test.jpg')">
     <nav>
         <a href="#">
-            <img src="VONTAGE.png" alt="logo" style="width: 15%;">
+            <img src="image_vontage/VONTAGE.png" alt="logo" style="width: 15%;">
         </a>
     </nav>
-
+<form action="/Vontage/System/connect.php" method="post"></form>
     <div class="container">
+        
         <h1>REGISTER</h1>
         <div class="form-group">
-            <input type="text" placeholder="Username">
+            <input id="username" name="Username" type="text" placeholder="Username" required>
             <i class="fas fa-user"></i> <!-- ใช้ไอคอน -->
         </div>
         <div class="form-group">
-            <input type="email" placeholder="Email">
+            <input id="email" name="Email" type="email" placeholder="Email" required>
             <i class="fas fa-envelope"></i>
         </div>
         <div class="form-group">
-            <input type="password" placeholder="Password">
+            <input id="password" name="Password" type="password" placeholder="Password" required>
             <i class="fas fa-lock"></i>
         </div>
         
@@ -34,8 +35,9 @@
             <i class="fas fa-arrow-right"></i> <!-- ไอคอนลูกศร -->
         </button>
         <h5>Alrady have an account? <a href="login_vontage.html">Login</a></h5>
+       
     </div>
-
+ </form>
     <footer>
         <div class="footer-section">
             <div class="column">
