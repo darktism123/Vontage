@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,6 @@
     <link rel="stylesheet" href="css_vontage/register&login.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
 </head>
 <body style="background-image:url('image_vontage/background_test.jpg')">
     <nav>
@@ -14,6 +14,7 @@
             <img src="image_vontage/VONTAGE.png" alt="logo" style="width: 15%;">
         </a>
     </nav>
+<<<<<<< HEAD
 <form action="/Vontage/System/connect.php" method="post"></form>
     <div class="container">
         
@@ -38,17 +39,42 @@
        
     </div>
  </form>
+=======
+    <form action="http://localhost:3000/register" method="post">
+        <div class="container">
+            <h1>REGISTER</h1>
+            <div class="form-group">
+                <input type="text" id="username" name="Username" placeholder="Username" required>
+                <small id="usernameFeedback" class="feedback"></small>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="Email" placeholder="Email" required>
+                <small id="emailFeedback" class="feedback"></small>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="Password" placeholder="Password" required minlength="8" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Password must contain at least 8 characters, including uppercase, lowercase letters, and numbers">
+                <i class="fas fa-lock"></i>
+            </div>
+            <button id="registerButton">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h5>Already have an account? <a href="login_vontage.html">Login</a></h5>
+        </div>
+    </form>
+
+>>>>>>> 9ab46e22842bf3b98c3be0b1a0811d3a6630e1c4
     <footer>
         <div class="footer-section">
             <div class="column">
                 <h4>Exclusive</h4>
                 <p>Subscribe</p>
                 <p>Get 10% off your first order</p>
-
             </div>
             <div class="column">
                 <h4>Support</h4>
-                <p>11 Bijoy sarani, Dhaka,</p>
+                <p>11 Bijoy Sarani, Dhaka,</p>
                 <p>DH 1216, Bangladesh.</p>
                 <p>exclusive@gmail.com</p>
                 <p>+88015-88888-9999</p>
@@ -81,5 +107,91 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Real-Time Validation -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Real-time username check
+        const usernameInput = document.getElementById('username');
+        const usernameFeedback = document.getElementById('usernameFeedback');
+
+        usernameInput.addEventListener('input', function () {
+            const username = this.value;
+
+            // Clear feedback if the field is empty
+            if (username === '') {
+                usernameFeedback.textContent = 'Enter a username.';
+                usernameFeedback.style.color = 'black';
+                return;
+            }
+
+            // Check minimum length requirement
+            if (username.length < 3) {
+                usernameFeedback.textContent = 'Username must be at least 3 characters.';
+                usernameFeedback.style.color = 'red';
+                return;
+            }
+
+            // Fetch availability if username length is valid
+            fetch(`/check-availability?username=${username}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    usernameFeedback.textContent = data.message;
+                    usernameFeedback.style.color = data.success ? 'green' : 'red';
+                })
+                .catch((error) => {
+                    console.error('Error checking username:', error);
+                    usernameFeedback.textContent = 'Error checking username.';
+                    usernameFeedback.style.color = 'red';
+                });
+        });
+
+        // Real-time email check
+        const emailInput = document.getElementById('email');
+        const emailFeedback = document.getElementById('emailFeedback');
+
+        emailInput.addEventListener('input', function () {
+            const email = this.value;
+
+            // Clear feedback if the field is empty
+            if (email === '') {
+                emailFeedback.textContent = 'Enter an email address.';
+                emailFeedback.style.color = 'black';
+                return;
+            }
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailFeedback.textContent = 'Invalid email format.';
+                emailFeedback.style.color = 'red';
+                return;
+            }
+
+            // Fetch availability if email is valid
+            fetch(`/check-availability?email=${email}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    emailFeedback.textContent = data.message;
+                    emailFeedback.style.color = data.success ? 'green' : 'red';
+                })
+                .catch((error) => {
+                    console.error('Error checking email:', error);
+                    emailFeedback.textContent = 'Error checking email.';
+                    emailFeedback.style.color = 'red';
+                });
+        });
+    });
+    </script>    
 </body>
 </html>

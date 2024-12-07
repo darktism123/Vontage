@@ -1,28 +1,28 @@
-new Swiper('.card-warpper', {
-    loop: true,
-    spaceBetween: 30,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
+new Swiper('.swiper', {
+  loop: true,
+  slidesPerView: 4,
+  spaceBetween: 20,
+  autoHeight: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
     },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    768: {
+      slidesPerView: 3,
     },
-  
-    breakpoints: {
-        0:{
-            sliderPerViwe: 1 
-        },
-        768:{
-            sliderPerViwe: 2
-        },
-        1024:{
-            sliderPerViwe: 3
-        },
-    }
-    
-  });
+    1024: {
+      slidesPerView: 4,
+    },
+    1440: {
+      slidesPerView: 5,
+    },
+  },
+});
