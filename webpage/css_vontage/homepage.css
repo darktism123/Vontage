@@ -141,6 +141,11 @@ body{
     text-align: center;
     max-width: 250px;
 }
+.card-item:hover{
+    transform: scale(1.1);
+    background-color: #b9b9b9fb;
+}
+
 
 .card-image {
     width: 100%;
@@ -228,14 +233,8 @@ body{
     color: inherit; /* ใช้สีเดียวกับปุ่ม */
 }
 
-/* Unicode สำหรับลูกศร */
-.swiper-button-prev::after {
-    content: '\f104'; /* ลูกศรซ้าย */
-}
 
-.swiper-button-next::after {
-    content: '\f105'; /* ลูกศรขวา */
-}
+
 
 .season{
     display: flex;
