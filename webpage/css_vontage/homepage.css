@@ -104,7 +104,9 @@ body{
     display: flex;
     justify-content: center;
 }
-
+.swiper-slide a{
+    text-decoration: none;
+}
 .swiper {
     overflow: visible; /* ปรับให้ swiper สามารถแสดงได้เต็มที่ */
     padding: 20px 0; /* ลด padding ด้านบนและล่าง */
@@ -112,6 +114,7 @@ body{
 }
 
 .swiper-wrapper {
+    
     display: flex;
     gap: 20px; /* ระยะห่างระหว่างสไลด์ */
     align-items: center; /* จัดตำแหน่งแนวตั้งให้ตรงกลาง */
@@ -128,6 +131,9 @@ body{
 }
 
 .card-item {
+    border-style: solid;
+    border-color: #afaeae;
+    border-width: 1px;
     background: #fff;
     padding: 15px;
     border-radius: 10px;
