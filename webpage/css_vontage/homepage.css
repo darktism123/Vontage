@@ -9,7 +9,6 @@ body{
     justify-content: space-between; /* แยกเนื้อหาไปซ้ายและขวา */
     align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
     min-height: 100vh; /* ความสูงเต็มหน้าจอ */
-    
     background-size: cover; /* ปรับภาพพื้นหลังให้ครอบคลุม */
     background-position: center; /* จัดตำแหน่งภาพพื้นหลัง */
 }
@@ -300,6 +299,7 @@ footer {
     align-items: flex-start; /* จัดให้อยู่บนสุด */
     gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
     width: 100%; /* เต็มความกว้าง */
+    margin-top: 50PX;
 }
 
 .footer-section {
@@ -330,9 +330,7 @@ footer {
     text-decoration: none;
 }
 
-.column a:hover {
-    text-decoration: underline;
-}
+
 
 /* สำหรับฟอร์มใน Exclusive */
 

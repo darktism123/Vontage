@@ -1,6 +1,8 @@
 body{
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -9,300 +11,241 @@ body{
     justify-content: space-between; /* แยกเนื้อหาไปซ้ายและขวา */
     align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
     min-height: 100vh; /* ความสูงเต็มหน้าจอ */
-    
     background-size: cover; /* ปรับภาพพื้นหลังให้ครอบคลุม */
     background-position: center; /* จัดตำแหน่งภาพพื้นหลัง */
+    
 }
-
-  
-button {
+.content_banner{
+    padding: 50px;
+}
+.content_banner p{
+    color: #fff;
+    font-size: 3.5rem;
+}
+.content_banner button {
     padding: 25px 100px;
-    background-color: #000; /* สีพื้นหลังปุ่ม */
-    color: #fff; /* สีข้อความปุ่ม */
-    border: none;
+    background-color: #ffffff; /* สีพื้นหลังปุ่ม */
+    color: #000000; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 50px; /* ขอบมน */
   }
   
-  button a {
+  .content_banner  button a {
     font-size: 1.5rem;
     text-decoration: none;
     color: inherit; /* ใช้สีเดียวกับปุ่ม */
   }
-  button:hover {
-    background-color: #ffffff; /* สีพื้นหลังเมื่อ hover */
-    color: #000000; /* สีข้อความเมื่อ hover */
-    border-inline: solid #000;
-    border-width: 0.5px;
+  .content_banner  button:hover {
+    background-color: #000000; /* สีพื้นหลังเมื่อ hover */
+    color: #ffffff; /* สีข้อความเมื่อ hover */
+    border-color: #fff;
   }
 
-  
-  .content_banner {
-    flex: 1;
-    padding: 50px; /* เพิ่ม Padding เพื่อจัดเนื้อหา */
-    margin: 0; /* ลดระยะห่างเกินความจำเป็น */
+  .product-section {
+    padding: 20px;
+    text-align: center;
 }
 
-.content_banner p {
-    font-size: 3.5rem; /* ขนาดข้อความใหญ่ */
-    line-height: 1.2; /* ระยะห่างระหว่างบรรทัด */
-    font-weight: bold;
-    color: #000;
+.product-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
-  
-  
-  .stats .men { 
-    display: flex;
-    justify-content: flex-start; /* จัดตำแหน่งทั้งหมดไปชิดขวา */
-    text-align: left; /* ชิดขวาสำหรับข้อความ */
-  }
-  .stats .women {
-    display: flex;
-    justify-content: flex-end; /* จัดตำแหน่งทั้งหมดไปชิดขวา */
-    text-align: right; /* ชิดขวาสำหรับข้อความ */
-  }
-  .stats .men div{
-    margin-right: 50px;
-  }
-  .stats .women div{
-    margin-left: 50px;
-  }
-  .stats h3 {
-    margin-bottom: 0.5px;
-    font-size: 2.5rem; /* ขนาดตัวเลข */
-    color: #000;
-  }
-  
-  .stats p {
-    font-size: 1rem; /* ขนาดข้อความรายละเอียด */
-    color: #4949498a;
-    
-  }
-  
-  /* สไตล์รูปภาพ */
-  .banner_pic {
-    max-width: 50%; /* จำกัดความกว้างไม่ให้เกิน 50% */
-    text-align: center; /* จัดรูปภาพให้อยู่กึ่งกลาง */
-  }
-  
-  .banner_pic img {
-    width: 100%; /* ให้รูปภาพเต็มความกว้างของ container */
-    height: 100%; /* ให้รูปภาพเต็มความสูงของ container */
-    object-fit: cover; /* ครอบรูปภาพให้เต็ม container */
-    display: block; /* ป้องกันช่องว่างด้านล่าง */
-  }
 
-  .container {
+/* Product Grid Styling */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Product Card Styling */
+.product-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
     height: auto;
-    padding-bottom: 20px;
 }
 
-.view-all {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px; /* ลดระยะห่างด้านบน */
+.product-info {
+    padding: 10px;
 }
 
-.view-all button {
-    padding: 8px 20px; /* ลดขนาดของปุ่ม */
-    font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+.product-info h2 {
+    font-size: 1rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-info p {
+    color: #333;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Button Styling */
+.product-info button {
+    padding: 8px 16px;
     background-color: #000;
     color: #fff;
-    border: none;
+    border: 1px solid #000;
     border-radius: 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.view-all button:hover {
-    background-color: #444;
-}
-
-
-.swiper {
-    height: auto !important; /* ปรับความสูงตามเนื้อหา */
-    overflow: hidden;
-}
-
-.swiper-wrapper {
-    display: flex;
-    height: auto; /* ปรับความสูงตามเนื้อหา */
-    gap: 20px; /* ระยะห่างระหว่างการ์ด */
-}
-.swiper-slide {
-    height: auto !important; /* บังคับปรับตามเนื้อหา */
-    padding: 10px; /* เพิ่ม Padding */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
-    border-radius: 10px; /* ขอบมน */
-    background-color: #fff; /* เพิ่มพื้นหลัง */
-    display: flex; /* ใช้ Flexbox */
-    align-items: center; /* จัดเนื้อหาให้อยู่กึ่งกลาง */
-    flex-direction: column; /* จัดเรียงเนื้อหาในแนวตั้ง */
-    justify-content: space-between; /* กระจายเนื้อหาในแนวตั้ง */
-    min-height: auto !important; /* ลบค่า min-height */
-}
-
-.card-item {
-    display: flex;
-    flex-direction: column; /* จัดเรียงแนวตั้ง */
-    align-items: center; /* จัดเนื้อหาให้อยู่ตรงกลาง */
-    justify-content: flex-start; /* เริ่มต้นจากด้านบน */
-    gap: 10px; /* เพิ่มช่องว่างระหว่างเนื้อหา */
-    text-align: center;
-    height: auto; /* ปรับความสูงตามเนื้อหา */
-    padding: 0; /* ลบ Padding ที่ไม่จำเป็น */
-    margin: 0; /* ลบ Margin ที่ไม่จำเป็น */
-}
-
-.card-image {
-    max-width: 100%; /* ปรับความกว้างของรูปภาพ */
-    height: auto; /* ให้ปรับความสูงตามอัตราส่วน */
-    object-fit: contain; /* รักษาสัดส่วนของรูปภาพ */
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-/* ลบ min-height หากมี */
-.card-item,
-.swiper-slide {
-    min-height: auto !important; /* ลบค่า min-height */
-    height: auto !important; /* ให้ปรับตามเนื้อหา */
-}
-
-/* ตรวจสอบปุ่ม */
-
-
-.badge {
-    font-size: 1.2rem; /* ขนาดฟอนต์ใหญ่ขึ้น */
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
-}
-
-.price {
-    font-size: 1rem;
+.product-info button:hover {
+    background-color: #fff;
     color: #000;
 }
 
-.old-price {
-    text-decoration: line-through;
-    color: #888;
-    margin-left: 5px;
+.banner_reccommen {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex; /* ใช้ Flexbox จัดลูกให้อยู่ในแนวนอน */
+    height: 100vh; /* ครอบคลุมความสูงเต็มหน้าจอ */
+    overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
 }
 
-.discount {
-    color: red;
-    margin-left: 5px;
-    font-size: 0.9rem;
-    font-weight: bold;
+.box_men, .box_women {
+    position: relative;
+    flex: 1; /* แบ่งพื้นที่ครึ่งหนึ่ง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* ซ่อนส่วนเกิน */
 }
 
-.swiper-pagination {
-    margin-top: 15px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    color: #000; /* สีของปุ่ม */
+.box_men img, .box_women img {
     position: absolute;
-    top: 50%; /* วางไว้ตรงกลางแนวตั้ง */
-    transform: translateY(-50%); /* ปรับให้อยู่กึ่งกลางจริง ๆ */
-    z-index: 10; /* ทำให้ปุ่มอยู่เหนือเนื้อหา */
-    width: 40px; /* ขนาดความกว้างของปุ่ม */
-    height: 40px;
-    background: #fff; /* เพิ่มพื้นหลังให้ชัด */
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้ภาพเต็มพื้นที่โดยรักษาสัดส่วน */
 }
 
-.swiper-button-prev {
-    left: -20px; /* ขยับออกจากการ์ดด้านซ้าย */
+/* สไตล์เนื้อหา */
+.content {
+    position: relative;
+    color: #fff;
+    z-index: 2; /* ให้แสดงเหนือภาพพื้นหลัง */
 }
 
-.swiper-button-next {
-    right: -20px; /* ขยับออกจากการ์ดด้านขวา */
+.box_men .content h1,
+.box_women .content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.5;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้ข้อความ */
+    margin-bottom: 20px;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: #f0f0f0; /* สีพื้นหลังเมื่อ Hover */
+.box_men .content h1 {
+    text-shadow: 
+        2px 2px 0 black, /* เงาด้านขวาล่าง */
+        -2px 2px 0 black, /* เงาด้านซ้ายล่าง */
+        2px -2px 0 black, /* เงาด้านขวาบน */
+        -2px -2px 0 black; /* เงาด้านซ้ายบน */
+}
+
+.box_men .content button {
+    padding: 25px 100px;
+    background-color: #000000; /* สีพื้นหลังปุ่ม */
+    color: #ffffff; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px; /* ขอบมน */
+}
+
+.box_women .content button {
+    padding: 25px 100px;
+    background-color: #ffffff; /* สีพื้นหลังปุ่ม */
+    color: #000000; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px; /* ขอบมน */
+}
+
+.box_men .content button:hover {
+    background-color: #fff; /* เปลี่ยนสีพื้นหลัง */
+    color: #000; /* เปลี่ยนสีข้อความ */
+}
+
+.box_women .content button:hover {
+    background-color: #000000; /* เปลี่ยนสีพื้นหลัง */
+    color: #ffffff; /* เปลี่ยนสีข้อความ */
+    border-color: #fff;
+}
+
+/* พื้นหลังที่ต่างกัน */
+.box_men {
+    background-color: #fff;
+}
+
+.box_women {
+    background-color: #000;
 }
 
 
-
-@media screen and (max-width: 768px) {
-    .banner {
-        flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
-        justify-content: center; /* จัดให้อยู่ตรงกลาง */
-        align-items: center; /* จัดให้อยู่กึ่งกลาง */
-        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-        padding: 20px; /* เพิ่มพื้นที่รอบๆ */
-    }
-
-    .content_banner {
-        margin-left: 0; /* ลบระยะห่างด้านซ้าย */
-        width: 100%; /* ใช้ความกว้างเต็ม */
-    }
-
-    .content_banner strong {
-        font-size: 3rem; /* ลดขนาดข้อความ */
-    }
-
-    .content_banner button {
-        width: 80%; /* ปรับขนาดปุ่มให้เล็กลง */
-    }
-
-    .stats {
-        padding-top: 50px;
-        justify-content: center; /* จัดตรงกลาง */
-        justify-content: space-around;
-        margin-top: 20px; /* ลดระยะห่างด้านบน */
-    }
-
-    .stats div {
-        margin: 10px 0; /* เพิ่มระยะห่างระหว่างแต่ละบล็อก */
-    }
-    
-    .banner img {
-        height: auto; /* ให้ปรับขนาดตามสัดส่วน */
-        width: 100%; /* ลดขนาดรูปภาพ */
-        margin: 20px 0 0 0; /* เพิ่มระยะห่างด้านบน */
-    
-    }
-    .stats {
-        flex-wrap: wrap; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
-        flex-direction: column; /* แสดงผลในแนวตั้ง */
-        text-align: center;
-    }
-    .stats div {
-        margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างบล็อก */
-    }
-    .swiper {
-        width: 90%; /* เพิ่มขนาดเป็นเกือบเต็มหน้าจอสำหรับมือถือ */
-    }
-
-    .card-wrapper {
-        grid-template-columns: 1fr; /* ให้แสดง 1 การ์ดต่อบรรทัด */
-    }
-
-    .card-item {
-        padding: 10px;
-    }
-    .swiper-slide {
-        width: 150px; /* ลดขนาดการ์ดในหน้าจอเล็ก */
-    }
-
-    .card-image {
-        max-width: 50%; /* ลดขนาดภาพในหน้าจอเล็ก */
-    }
-
-    .badge {
-        font-size: 0.8rem; /* ลดฟอนต์หัวข้อ */
-    }
-
-    .card-item p {
-        font-size: 0.7rem; /* ลดฟอนต์คำอธิบาย */
-    }
+footer {
+    background-color: black;
+    color: white;
+    padding: 100px 0px 100px 0px;
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* ให้รองรับหน้าจอเล็ก */
+    justify-content: space-between; /* จัดระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดให้อยู่บนสุด */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    width: 100%; /* เต็มความกว้าง */
+    margin-top: 50PX;
 }
 
+.footer-section {
+    display: flex;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* ให้แต่ละคอลัมน์แบ่งพื้นที่เท่ากัน */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    margin: 0 10px;
+}
+
+.column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.column p,
+.column a {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
