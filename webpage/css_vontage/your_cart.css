@@ -177,3 +177,44 @@ body {
     margin-top: 10px;
     font-size: 16px;
 }
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 100px 0px 100px 0px;
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* ให้รองรับหน้าจอเล็ก */
+    justify-content: space-between; /* จัดระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดให้อยู่บนสุด */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    width: 100%; /* เต็มความกว้าง */
+    margin-top: 50PX;
+}
+
+.footer-section {
+    display: flex;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* ให้แต่ละคอลัมน์แบ่งพื้นที่เท่ากัน */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    margin: 0 10px;
+}
+
+.column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.column p,
+.column a {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
