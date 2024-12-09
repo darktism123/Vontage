@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #f4f4f4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+
+.header {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+button {
+    padding: 6px 12px;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.color-dots {
+    display: flex; /* Arrange dots horizontally */
+    gap: 8px; /* Space between dots */
+    align-items: center; /* Align dots in the center */
+}
+
+.color-dot {
+    width: 20px; /* Diameter of the dot */
+    height: 20px; /* Diameter of the dot */
+    border-radius: 50%; /* Makes the dots circular */
+    display: inline-block; /* Ensures dots behave as block elements */
+    border: 2px solid #fff; /* Optional: add a border for better visibility */
+}
+
+
+
+
