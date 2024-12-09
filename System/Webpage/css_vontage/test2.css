@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    height: 50vh; /* Use 50% of viewport height */
+}
+
+.show_pic {
+    display: flex;
+}
+
+.main_slide {
+    width: 70%; /* Set the main image to take up 70% of the container's width */
+    height: 100%;
+    position: relative;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Thumbnail images section */
+.thumbnail-container {
+    width: 25%; /* Set the thumbnail section to 25% of the container width */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+.column {
+    width: 100%;
+}
+
+.demo {
+    opacity: 0.6;
+    width: 20%; /* Thumbnails take up the full width of their container */
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.active, .demo:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Slightly enlarge the thumbnail on hover */
+    border-color: #000;
+}

@@ -1,0 +1,251 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner {
+    display: flex; /* ใช้ Flexbox สำหรับจัดตำแหน่ง */
+    justify-content: space-between; /* แยกเนื้อหาไปซ้ายและขวา */
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    min-height: 100vh; /* ความสูงเต็มหน้าจอ */
+    background-size: cover; /* ปรับภาพพื้นหลังให้ครอบคลุม */
+    background-position: center; /* จัดตำแหน่งภาพพื้นหลัง */
+    
+}
+.content_banner{
+    padding: 50px;
+}
+.content_banner p{
+    color: #fff;
+    font-size: 3.5rem;
+}
+.content_banner button {
+    padding: 25px 100px;
+    background-color: #ffffff; /* สีพื้นหลังปุ่ม */
+    color: #000000; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px; /* ขอบมน */
+  }
+  
+  .content_banner  button a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: inherit; /* ใช้สีเดียวกับปุ่ม */
+  }
+  .content_banner  button:hover {
+    background-color: #000000; /* สีพื้นหลังเมื่อ hover */
+    color: #ffffff; /* สีข้อความเมื่อ hover */
+    border-color: #fff;
+  }
+
+  .product-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Product Grid Styling */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Product Card Styling */
+.product-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-info {
+    padding: 10px;
+}
+
+.product-info h2 {
+    font-size: 1rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.product-info p {
+    color: #333;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Button Styling */
+.product-info button {
+    padding: 8px 16px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-info button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.banner_reccommen {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex; /* ใช้ Flexbox จัดลูกให้อยู่ในแนวนอน */
+    height: 100vh; /* ครอบคลุมความสูงเต็มหน้าจอ */
+    overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+}
+
+.box_men, .box_women {
+    position: relative;
+    flex: 1; /* แบ่งพื้นที่ครึ่งหนึ่ง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+}
+
+.box_men img, .box_women img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ให้ภาพเต็มพื้นที่โดยรักษาสัดส่วน */
+}
+
+/* สไตล์เนื้อหา */
+.content {
+    position: relative;
+    color: #fff;
+    z-index: 2; /* ให้แสดงเหนือภาพพื้นหลัง */
+}
+
+.box_men .content h1,
+.box_women .content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.5;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้ข้อความ */
+    margin-bottom: 20px;
+}
+
+.box_men .content h1 {
+    text-shadow: 
+        2px 2px 0 black, /* เงาด้านขวาล่าง */
+        -2px 2px 0 black, /* เงาด้านซ้ายล่าง */
+        2px -2px 0 black, /* เงาด้านขวาบน */
+        -2px -2px 0 black; /* เงาด้านซ้ายบน */
+}
+
+.box_men .content button {
+    padding: 25px 100px;
+    background-color: #000000; /* สีพื้นหลังปุ่ม */
+    color: #ffffff; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px; /* ขอบมน */
+}
+
+.box_women .content button {
+    padding: 25px 100px;
+    background-color: #ffffff; /* สีพื้นหลังปุ่ม */
+    color: #000000; /* สีข้อความปุ่ม */
+    border: solid #000000;
+    border-width: 2.5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px; /* ขอบมน */
+}
+
+.box_men .content button:hover {
+    background-color: #fff; /* เปลี่ยนสีพื้นหลัง */
+    color: #000; /* เปลี่ยนสีข้อความ */
+}
+
+.box_women .content button:hover {
+    background-color: #000000; /* เปลี่ยนสีพื้นหลัง */
+    color: #ffffff; /* เปลี่ยนสีข้อความ */
+    border-color: #fff;
+}
+
+/* พื้นหลังที่ต่างกัน */
+.box_men {
+    background-color: #fff;
+}
+
+.box_women {
+    background-color: #000;
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 100px 0px 100px 0px;
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* ให้รองรับหน้าจอเล็ก */
+    justify-content: space-between; /* จัดระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดให้อยู่บนสุด */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    width: 100%; /* เต็มความกว้าง */
+    margin-top: 50PX;
+}
+
+.footer-section {
+    display: flex;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* ให้แต่ละคอลัมน์แบ่งพื้นที่เท่ากัน */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    margin: 0 10px;
+}
+
+.column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.column p,
+.column a {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}

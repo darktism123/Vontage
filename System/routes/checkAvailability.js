@@ -1,52 +1,45 @@
 const express = require('express');
-const { db, cachedUsernames } = require('../config/db'); // Import cached usernames
-
+const db = require('../config/db');  // Import database connection
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    const { username, email } = req.query;
+// Helper function to check availability
+const checkAvailability = (field, value, res) => {
+    const query = `SELECT ${field} FROM customer WHERE ${field} = ?`;
 
-    if (!username && !email) {
-        return res.status(400).json({ success: false, message: 'No data provided.' });
-    }
-
-    // Check username availability using cached data
-    if (username) {
-        if (cachedUsernames.includes(username)) {
-            // If username exists in the cache
-            return res.json({ success: false, message: 'Username is already taken.' });
+    db.query(query, [value], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ success: false, message: 'Database error.' });
         }
 
-        // If not found in the cache, fallback to database check
-        db.query('SELECT username FROM customer WHERE username = ?', [username], (err, results) => {
-            if (err) {
-                console.error('Database error:', err);
-                return res.status(500).json({ success: false, message: 'Database error.' });
-            }
+        if (results.length > 0) {
+            return res.json({ success: false, message: `${value} is already taken.` });
+        } else {
+            return res.json({ success: true, message: `${value} is available.` });
+        }
+    });
+};
 
-            if (results.length > 0) {
-                return res.json({ success: false, message: 'Username is already taken.' });
-            } else {
-                return res.json({ success: true, message: 'Username is available.' });
-            }
-        });
+// Check availability for username
+router.get('/username', (req, res) => {
+    const { username } = req.query;
+
+    if (!username) {
+        return res.status(400).json({ success: false, message: 'Username is required.' });
     }
 
-    // Check email availability
-    if (email) {
-        db.query('SELECT email FROM customer WHERE email = ?', [email], (err, results) => {
-            if (err) {
-                console.error('Database error:', err);
-                return res.status(500).json({ success: false, message: 'Database error.' });
-            }
+    return checkAvailability('username', username, res);
+});
 
-            if (results.length > 0) {
-                return res.json({ success: false, message: 'Email is already taken.' });
-            } else {
-                return res.json({ success: true, message: 'Email is available.' });
-            }
-        });
+// Check availability for email
+router.get('/email', (req, res) => {
+    const { email } = req.query;
+
+    if (!email) {
+        return res.status(400).json({ success: false, message: 'Email is required.' });
     }
+
+    return checkAvailability('email', email, res);
 });
 
 module.exports = router;
