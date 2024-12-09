@@ -1,0 +1,226 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ดัน footer ลงล่าง */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 95px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+nav img {
+
+    width: 100px; /* ให้รูปภาพปรับตามสัดส่วน */
+}
+
+nav a {
+    display: flex; /* ใช้ Flexbox กับ <a> */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    height: 100%; /* ให้ <a> สูงเท่ากับ <nav> */
+    text-decoration: none; /* ลบเส้นใต้ */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    max-width: 90%;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.945);
+    margin-top: 200px; /* ระยะห่างจาก nav */
+    margin-bottom: 150px;
+}
+
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%; /* ขยาย form-group ให้เต็มความกว้าง container */
+}
+
+.form-group input {
+    background-color: rgba(240, 248, 255, 0);
+    width: 100%; /* ช่องกรอกข้อมูลเต็มความกว้าง */
+    padding: 10px 40px 10px 10px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* เพื่อหลีกเลี่ยง padding เกินขอบ */
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid gray;
+}
+
+.form-group i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: gray;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100px; /* ขยายปุ่มให้กว้างขึ้น */
+    height: 45px; /* ปรับขนาดความสูง */
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 100px 0px 100px 0px;
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* ให้รองรับหน้าจอเล็ก */
+    justify-content: space-between; /* จัดระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดให้อยู่บนสุด */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    width: 100%; /* เต็มความกว้าง */
+}
+
+.footer-section {
+    display: flex;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* ให้แต่ละคอลัมน์แบ่งพื้นที่เท่ากัน */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    margin: 0 10px;
+}
+
+.column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.column p,
+.column a {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
+
+.column a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        justify-content: flex-start; /* ป้องกัน footer ถูกดันมากเกินไป */
+    }
+    
+    nav {
+        height: 60px; /* ลดความสูง nav */
+        font-size: 16px; /* ลดขนาดตัวอักษร */
+    }
+    
+
+    .container {
+        margin-top: 80px; /* เพิ่มระยะห่างจาก nav */
+        padding: 30px; /* ลด padding ภายใน */
+        width: 90%; /* ลดความกว้าง container */
+    }
+
+    footer {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้งในหน้าจอเล็ก */
+        align-items: center;
+    }
+
+    .column {
+        flex: none; /* ยกเลิกการแบ่งพื้นที่ */
+        width: 100%; /* ใช้ความกว้างเต็ม */
+        text-align: center; /* จัดเนื้อหาให้อยู่ตรงกลาง */
+    }
+
+    .subscribe {
+        justify-content: center;
+    }
+
+
+    footer p {
+        margin: 10px 0; /* เพิ่มระยะห่างใน footer */
+    }
+
+
+    button {
+        width: 80px; /* ลดขนาดปุ่มในหน้าจอเล็ก */
+        height: 40px;
+    }
+
+  .feedback {
+    display: block;
+    min-height: 1em; /* Reserves space for feedback messages */
+    font-size: 0.9em;
+    margin-top: 5px;
+    transition: color 0.3s ease; /* Smooth color transitions */
+}
+
+.feedback.green {
+    color: green;
+}
+
+.feedback.red {
+    color: red;
+}
+
+}

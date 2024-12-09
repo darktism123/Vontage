@@ -1,21 +1,26 @@
 const express = require('express');
+const path = require('path');
+const registerRoutes = require('./routes/register');
+const loginRoutes = require('./routes/login');
+const checkAvailabilityRoutes = require('./routes/checkAvailability');
 
 const app = express();
 
-// Middleware to set CORS headers manually
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allowed methods
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allowed headers
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200); // Handle preflight requests
-    }
-    next();
-});
+// Middleware for parsing form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Example routes
+// Mount register routes
+app.use('/register', registerRoutes);
+app.use('/login', loginRoutes);
+app.use('/checkAvailability', checkAvailabilityRoutes);
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'Webpage')));
+
+// Default route
 app.get('/', (req, res) => {
-    res.send('CORS is manually handled!');
+    res.sendFile(path.join(__dirname, 'Webpage/register_vontage.html'));
 });
 
 // Start the server

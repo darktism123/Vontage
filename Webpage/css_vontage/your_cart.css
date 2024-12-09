@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.menu_cart {
+    background-color: #a5a5a5;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.menu_cart a {
+    font-size: 1.5rem;
+    color: #575757;
+    text-decoration: none; /* เอาเส้นใต้เริ่มต้นออก */
+    opacity: 0.5;
+    transition: opacity 0.3s ease; /* เพิ่มเอฟเฟกต์ลื่นไหล */
+}
+
+.menu_cart a.active, .menu_cart a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.menu_cart a.order_status:hover {
+    text-decoration: underline; /* เพิ่มเส้นใต้เฉพาะ Order status */
+}
+
+
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    
+    max-width: 1200px;
+    
+    margin: auto;
+}
+
+.cart {
+    width: 65%;
+}
+
+.cart h2 {
+    margin-top: 20px;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-price, .item-quantity {
+    margin-right: 20px;
+}
+
+.quantity-selection {
+    margin-top: 20px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0px 25px 0px 25px ;
+    
+}
+
+.quantity-btn {
+    padding: 2px 6px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 25px;
+}
+
+.quantity-value {
+    font-size: 18px;
+}
+
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+
+.order-summary {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.order-summary p, .order-summary h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.promotion{
+    display: flex;
+    
+}
+.order-summary input {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.apply-btn{
+    width: 15%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.payment-btn {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-btn {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 100px 0px 100px 0px;
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* ให้รองรับหน้าจอเล็ก */
+    justify-content: space-between; /* จัดระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดให้อยู่บนสุด */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    width: 100%; /* เต็มความกว้าง */
+    margin-top: 50PX;
+}
+
+.footer-section {
+    display: flex;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* ให้แต่ละคอลัมน์แบ่งพื้นที่เท่ากัน */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    margin: 0 10px;
+}
+
+.column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.column p,
+.column a {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}

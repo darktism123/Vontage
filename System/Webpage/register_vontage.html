@@ -83,30 +83,29 @@
 
     <!-- JavaScript for Real-Time Validation -->
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
         // Real-time username check
         const usernameInput = document.getElementById('username');
         const usernameFeedback = document.getElementById('usernameFeedback');
-
-        usernameInput.addEventListener('input', function () {
+                
+        usernameInput.addEventListener('blur', function () {
             const username = this.value;
-
+    
             // Clear feedback if the field is empty
             if (username === '') {
                 usernameFeedback.textContent = 'Enter a username.';
                 usernameFeedback.style.color = 'black';
                 return;
             }
-
+    
             // Check minimum length requirement
             if (username.length < 3) {
                 usernameFeedback.textContent = 'Username must be at least 3 characters.';
                 usernameFeedback.style.color = 'red';
                 return;
             }
-
+    
             // Fetch availability if username length is valid
-            fetch(`/check-availability?username=${username}`)
+            fetch(`/checkAvailability/username?username=${username}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -123,21 +122,22 @@
                     usernameFeedback.style.color = 'red';
                 });
         });
-
+    
         // Real-time email check
         const emailInput = document.getElementById('email');
         const emailFeedback = document.getElementById('emailFeedback');
-
-        emailInput.addEventListener('input', function () {
-            const email = this.value;
-
+    
+        emailInput.addEventListener('blur', function (e) {
+            const email = e.target.value;
+            e.preventDefault();
+    
             // Clear feedback if the field is empty
             if (email === '') {
                 emailFeedback.textContent = 'Enter an email address.';
                 emailFeedback.style.color = 'black';
                 return;
             }
-
+    
             // Validate email format
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
@@ -145,9 +145,9 @@
                 emailFeedback.style.color = 'red';
                 return;
             }
-
+    
             // Fetch availability if email is valid
-            fetch(`/check-availability?email=${email}`)
+            fetch(`/checkAvailability/email?email=${email}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -164,7 +164,30 @@
                     emailFeedback.style.color = 'red';
                 });
         });
-    });
+    
+        // Form submission handling
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            const username = usernameInput.value;
+            const email = emailInput.value;
+            let isValid = true;
+    
+            // Check username feedback
+            if (usernameFeedback.style.color === 'red') {
+                isValid = false;
+            }
+    
+            // Check email feedback
+            if (emailFeedback.style.color === 'red') {
+                isValid = false;
+            }
+    
+            // Prevent form submission if any field is invalid
+            if (!isValid) {
+                event.preventDefault();
+                alert('Please fix the errors before submitting the form.');
+            }
+        });
     </script>    
 </body>
 </html>

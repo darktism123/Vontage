@@ -1,0 +1,124 @@
+body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  width: 100%;
+  height: 95px;
+  margin: 0;
+  left: 0;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+}
+.nav-container span{
+  color: white;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #61616180;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+.nav-right {
+display: flex;
+align-items: center;
+gap: 15px; /* ระยะห่างระหว่างไอคอน */
+padding-right: 45px;
+}
+.search-container {
+display: flex;
+align-items: center;
+background-color: #d3d3d3b9; /* สีพื้นหลัง */
+border-radius: 5px; /* มุมโค้งมน */
+padding: 5px;
+width: 300px; /* ความกว้างของแถบค้นหา */
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+/* ช่องกรอกข้อมูล */
+.search-bar {
+flex: 1; /* ใช้พื้นที่ที่เหลือ */
+border: none;
+outline: none;
+padding: 8px 10px;
+font-size: 14px;
+background: none; /* พื้นหลังใส */
+color: #000000; /* สีตัวอักษร */
+}
+.search-container:hover {
+background-color: rgb(255, 255, 255);
+}
+
+/* ปุ่มค้นหา */
+.search-btn {
+background: none;
+border: none;
+color: #555; /* สีของไอคอน */
+cursor: pointer;
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.search-btn:hover {
+color: black; /* เปลี่ยนสีเมื่อ hover */
+}
+.cart-btn, .profile-btn {
+background: none;
+border: none;
+color: white;
+font-size: 24px; /* ขนาดไอคอน */
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px; /* ขนาดของปุ่ม */
+height: 40px; /* ขนาดของปุ่ม */
+border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+}
+.cart-btn:hover, .profile-btn:hover {
+color: rgb(182, 181, 181); /* เพิ่มสีพื้นหลังเมื่อ hover */
+}
+
