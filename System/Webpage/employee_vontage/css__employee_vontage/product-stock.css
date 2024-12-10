@@ -73,20 +73,55 @@ button {
     gap: 10px;
 }
 
-.color-dots {
-    display: flex; /* Arrange dots horizontally */
-    gap: 8px; /* Space between dots */
-    align-items: center; /* Align dots in the center */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
 }
 
-.color-dot {
-    width: 20px; /* Diameter of the dot */
-    height: 20px; /* Diameter of the dot */
-    border-radius: 50%; /* Makes the dots circular */
-    display: inline-block; /* Ensures dots behave as block elements */
-    border: 2px solid #fff; /* Optional: add a border for better visibility */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
 }
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    padding: 6px 12px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
 
 
 

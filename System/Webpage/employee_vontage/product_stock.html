@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css__employee_vontage/product-stock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>Product Stock</title>
+    
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="product_stock.html" id="product-stock-link">Product Stock</a>
+        <a href="customer_order_warehouse.html" id="customer-order-link">Customer Order</a>
+    </div>
+
+    <div class="header">
+        <h1>Product Stock</h1>
+        <div class="tool">
+            <input type="text" placeholder="Search Product Name">
+            <button id="addProductButton">Add Product</button>
+        </div>
+        
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Piece</th>
+                    <th>Size</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://via.placeholder.com/50" alt="Product Image"></td>
+                    <td>Apple Watch Series 4</td>
+                    <td>Digital Product</td>
+                    <td>$690.00</td>
+                    <td>63</td>
+                    <td>XL</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="https://via.placeholder.com/50" alt="Product Image"></td>
+                    <td>Microsoft Headphones</td>
+                    <td>Digital Product</td>
+                    <td>$199.00</td>
+                    <td>50</td>
+                    <td>L</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Prodate</h2>
+            <form>
+                <p>ID Product: <span>1234-xxxx</span></p>
+                <p>Product Name: <span>Lee Huu</span></p>
+                <p>Size: <span>XL</span></p>
+                <label for="quantity-add">Quantity-add:</label>
+                <input type="number" id="quantity-add" name="quantity-add"><br><br>
+                <label for="quantity-remove">Quantity-remove:</label>
+                <input type="number" id="quantity-remove" name="quantity-remove"><br><br>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price"><br><br>
+                <button type="submit">Save</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="updateproduct" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Product</h2>
+            <form>
+                
+                <p>Product Name: <input type="number" id="quantity-add" name="quantity-add"><br><br></p>
+                <p>Size: <span>XL</span></p>
+                <label for="quantity-add">Quantity-add:</label>
+                <input type="number" id="quantity-add" name="quantity-add"><br><br>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price"><br><br>
+                <button type="submit">Save</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js_employee_vontage/stock_popup.js"></script>
+</body>
+</html>
