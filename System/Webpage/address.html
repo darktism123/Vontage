@@ -14,45 +14,36 @@
             <img src="image_vontage/VONTAGE.png" alt="logo" style="width: 15%;">
         </a>
     </nav>
-    <form action="http://localhost:3000/register" method="post">
-
+    <form action="/addressRegisterRoutes" method="post">
 
         <div class="container">
             <h1>REGISTER</h1>
             <div class="form-group">
-                <input type="text" id="fname" name="fname" placeholder="First Name" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="lname" name="lname" placeholder="Last Name" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="phone" name="phone" placeholder="Phone" required>
-                <i class="fas fa-phone"></i>
-            </div>
-            <div class="form-group">
-                <input type="text" id="address" name="address" placeholder="Address" required>
-                <i class="fas fa-home"></i>
-            </div>
-            <div class="form-group">
-                <input type="text" id="street-address" name="street-address" placeholder="Street address" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="postal-code" name="postal-code" placeholder="Postal code" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="city" name="city" placeholder="City" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="country" name="country" placeholder="Country" required>
-            </div>
-            <button type="submit">
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <input type="text" id="phone" name="phone" placeholder="Phone" required>
+            <i class="fas fa-phone"></i>
         </div>
+        <div class="form-group">
+            <input type="text" id="address" name="address" placeholder="Address" required>
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" id="streetAddress" name="streetAddress" placeholder="Street address" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="postalCode" name="postalCode" placeholder="Postal code" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="city" name="city" placeholder="City" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="country" name="country" placeholder="Country" required>
+        </div>
+        <button type="submit">
+            <i class="fas fa-arrow-right"></i>
+        </button>
             
             
-            
-            <h5>Already have an account? <a href="login_vontage.html">Login</a></h5>
+            <h5>Already have an account? <a href="/login">Login</a></h5>
         </div>
 
 

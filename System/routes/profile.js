@@ -8,10 +8,12 @@ router.get('/details', (req, res) => {
     if (!req.session.customerId) {
         return res.json({
             message: 'Not logged in',
-            username: 'Guest',
+            username: 'Login',
             email: null,
             phone: null,
             address: null,
+            street_address: null,
+            postal_code: null,
             city: null,
             country: null,
         });
@@ -19,7 +21,7 @@ router.get('/details', (req, res) => {
 
     // Query to fetch user details by customer ID
     const query = `
-        SELECT customer_id, username, email, phone, address, city, country
+        SELECT customer_id, username, email, phone, address, street_address, postal_code, city, country
         FROM customer
         WHERE customer_id = ?
     `;
@@ -44,6 +46,8 @@ router.get('/details', (req, res) => {
             email: user.email,
             phone: user.phone || null,
             address: user.address || null,
+            street_address: user.street_address || null,
+            postal_code: user.postal_code || null,
             city: user.city || null,
             country: user.country || null,
         });
