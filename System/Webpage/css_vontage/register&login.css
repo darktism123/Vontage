@@ -5,7 +5,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-size: cover;
+    background-size:cover;
     background-position: center;
     font-family: Arial, sans-serif;
 }
@@ -45,7 +45,7 @@ nav a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 550px;
+    width: 450px;
     max-width: 90%;
     border-radius: 15px;
     border: 1px solid black;
@@ -64,25 +64,37 @@ h1 {
 }
 
 .form-group {
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%; /* ขยาย form-group ให้เต็มความกว้าง container */
+    position: relative; /* ใช้ position relative เพื่อให้ข้อความแจ้งเตือนจัดอยู่ในตำแหน่งที่สัมพันธ์กับ input */
+    margin-bottom: 30px; /* เพิ่มพื้นที่สำหรับข้อความแจ้งเตือน */
+    width: 100%; /* ให้ฟอร์มขยายเต็มความกว้าง */
+    max-width: 400px; /* กำหนดความกว้างสูงสุด */
 }
 
+/* ช่องกรอกข้อมูล */
 .form-group input {
     background-color: rgba(240, 248, 255, 0);
-    width: 100%; /* ช่องกรอกข้อมูลเต็มความกว้าง */
-    padding: 10px 40px 10px 10px;
+    width: 100%; /* ให้ input ขยายเต็ม form-group */
+    padding: 10px;
     font-size: 14px;
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid black; /* เส้นใต้ */
     outline: none;
     transition: border-color 0.3s ease;
-    box-sizing: border-box; /* เพื่อหลีกเลี่ยง padding เกินขอบ */
+    box-sizing: border-box;
 }
 
+/* เมื่อ focus */
 .form-group input:focus {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid gray; /* สีเส้นเมื่อเลือก */
+}
+
+/* ข้อความแจ้งเตือน */
+.feedback {
+    color: red; /* สีข้อความแจ้งเตือน */
+    font-size: 0.85em; /* ขนาดตัวอักษรเล็กกว่าปกติ */
+    margin-top: 5px; /* ระยะห่างระหว่าง input และข้อความ */
+    display: block; /* แสดงข้อความด้านล่าง input */
+    text-align: left; /* จัดข้อความชิดซ้าย */
 }
 
 .form-group i {
@@ -109,12 +121,15 @@ button {
     margin: 20px auto;
     transition: background-color 0.3s ease;
 }
-
+button a:hover{
+    color: rgb(0, 0, 0);
+}
 button:hover {
     background-color: rgb(255, 255, 255);
     color: black;
     border: 1px solid black;
 }
+
 
 footer {
     background-color: black;
