@@ -1,0 +1,186 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 70%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #f8f8f8;
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    border: 2px solid #ddd;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+.total, .total_price {
+    text-align: center;
+}
+
+.uqantity, .status {
+    text-align: center;
+}
+
+/* Item Image */
+.item-image img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-image {
+    display: flex;
+    justify-content: center;
+}
+
+/* Item Name Styling */
+.item_name h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.item_name h5 {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Payment Container Styling */
+.payment-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    border: 1px solid #ddd;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Payment Options */
+.payment-options {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-options button {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+.payment-options button.active {
+    background-color: #007bff; /* พื้นหลังสีฟ้า */
+    color: white; /* ตัวอักษรสีขาว */
+    border-color: #0056b3; /* เส้นขอบสีเข้มขึ้น */
+}
+
+
+.payment-options button:active, 
+.payment-options button:hover {
+    background-color: #e6f7ff;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* Picture Styling */
+.picture img {
+    width: 50%;
+    margin: 15px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #333;
+}
+
+/* Destination Styling */
+.destination {
+    width: 100%;
+    margin-top: 50%;
+    margin-bottom: 44%;
+    text-align: center;
+}
+
+#QR_payment, #destination {
+    display: none;
+}
+
+#QR_payment.active, #destination.active {
+    display: block;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .payment-container {
+        width: 90%;
+    }
+}

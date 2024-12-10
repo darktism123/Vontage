@@ -10,82 +10,8 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 10px;
-}
-
-/* Table Styling */
-table {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-thead {
-    background-color: #f8f8f8;
-    text-align: left;
-}
-
-th, td {
-    padding: 15px;
-    
-}
-
-th {
-    border: 2px solid #ddd;
-    font-weight: bold;
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
-td {
-    vertical-align: middle;
-    border: 1px solid #ddd;
-}
-
-.uqantity,.status {
-    text-align: center;
-}
-
-/* Item Image */
-.item-image img {
-    max-width: 100px;
-    max-height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Item Name Styling */
-.item_name h3 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.item_name h5 {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Menu Cart Styling */
-.menu_cart {
-    background-color: #a5a5a5;
-    padding: 25px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.menu_cart a {
-    font-size: 1.5rem;
-    color: #575757;
-    text-decoration: none;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.menu_cart a.active, .menu_cart a:hover {
-    opacity: 1;
-    text-decoration: underline;
-}

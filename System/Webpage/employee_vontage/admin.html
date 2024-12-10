@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vontage Admin Panel</title>
+    <link rel="stylesheet" href="css__employee_vontage/admin.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="product-stock.html" id="product-stock-link">Product Stock</a>
+        <a href="customer-order.html" id="customer-order-link" class="active">Customer Order</a>
+        <a href="admin.html" id="admin-link">Administrator</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Employees</h1>
+            <button id="open-form-btn">Create Row</button>
+        </div>
+
+        <!-- Employee Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                    <th>Jobs</th>
+                </tr>
+            </thead>
+            <tbody id="employee-table">
+                <tr>
+                    <td>Brayden</td>
+                    <td>Carpenter</td>
+                    <td>brayden.carpenter@example.com</td>
+                    <td>Bradford</td>
+                    <td>01395 12426</td>
+                    <td>Administrator</td>
+                </tr>
+                <tr>
+                    <td>Holly</td>
+                    <td>Carroll</td>
+                    <td>holly.carroll@example.com</td>
+                    <td>Edinburgh</td>
+                    <td>016977 79053</td>
+                    <td>Customer Service</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container hidden" id="form-container">
+        <form id="employee-form">
+            <h3>Create Row</h3>
+            <label>First Name: <input type="text" id="first-name" required></label>
+            <label>Last Name: <input type="text" id="last-name" required></label>
+            <label>Email: <input type="email" id="email" required></label>
+            <label>City: <input type="text" id="city"></label>
+            <label>Phone: <input type="text" id="phone"></label>
+            <label>Jobs: <input type="text" id="jobs"></label>
+            <button type="submit">Save</button>
+            <button type="button" id="close-form-btn">Cancel</button>
+        </form>
+    </div>
+
+    <script src="js_employee_vontage/admin.js"></script>
+</body>
+</html>
+

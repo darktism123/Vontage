@@ -56,6 +56,11 @@ td {
     text-align: center;
 }
 
+.item-image{
+    display: flex;
+    justify-content: center;
+}
+
 /* Item Name Styling */
 .item_name h3 {
     margin: 0;

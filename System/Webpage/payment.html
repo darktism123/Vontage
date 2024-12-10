@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="css_vontage/payment.css">
+    <link rel="stylesheet" href="css_vontage/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+</head>
+<body>
+    <script src="js_vontage/navbar_connect.js"></script>
+    <div id="header-container"></div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Item</th>
+                    <th>QUANTITY</th>
+                    <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="item-image">
+                        <img src="image_vontage/card_NewArrivals_1.png" alt="Item">
+                    </td>
+                    <td>
+                        <div class="item_name">
+                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
+                            <h5>Size: Large</h5>
+                        </div>
+                    </td>
+                    <td class="uqantity">1</td>
+                    <td class="status">145</td>
+                </tr>
+                <tr>
+                    <td class="item-image">
+                        <img src="image_vontage/card_NewArrivals_5.png" alt="Item">
+                    </td>
+                    <td>
+                        <div class="item_name">
+                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
+                            <h5>Size: Large</h5>
+                        </div>
+                    </td>
+                    <td class="uqantity">1</td>
+                    <td class="status">180</td>
+                </tr>
+                <tr>
+                    <td class="item-image">
+                        <img src="image_vontage/card_NewArrivals_6.png" alt="Item">
+                    </td>
+                    <td>
+                        <div class="item_name">
+                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
+                            <h5>Size: Large</h5>
+                        </div>
+                    </td>
+                    <td class="uqantity">1</td>
+                    <td class="status">240</td>
+                </tr>
+                <tr>
+                    <td class="total" colspan="3">
+                        <h3>TOTAL</h3>
+                    </td>
+                    <td class="total_price">565</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="payment-container">
+            <h1>PAYMENT METHOD</h1>
+            <div class="payment-options">
+                <button class="QR" onclick="showQR()">QR PAYPAL</button>
+                <button class="DESTINATION" onclick="showDestination()">DESTINATION</button>
+            </div>
+            <div class="picture" id="QR_payment" class="active">
+                <img src="image_vontage/qr.png" alt="QR">
+            </div>
+            <div class="destination" id="destination">
+                <h5>THANK YOU</h5>
+            </div>
+            <button class="submit-button">Submit</button>
+        </div>
+    </div>
+
+    <script src="js_vontage/payment.js"></script>
+</body>
+</html>
