@@ -112,7 +112,7 @@
             }
     
             // Fetch availability if username length is valid
-            fetch(`/checkAvailability/username?username=${username}`)
+            fetch(`/checkAvailabilityRoutes/username?username=${username}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -154,7 +154,7 @@
             }
     
             // Fetch availability if email is valid
-            fetch(`/checkAvailability/email?email=${email}`)
+            fetch(`/checkAvailabilityRoutes/email?email=${email}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
