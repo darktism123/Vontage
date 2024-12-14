@@ -13,6 +13,7 @@ const SECRET_KEY = 'gysAFRV5CJjARzr0a1af';
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 // Add session middleware with your custom secret key
 app.use(session({
     secret: SECRET_KEY, 
@@ -35,7 +36,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });

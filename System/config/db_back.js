@@ -15,7 +15,7 @@ db.connect((err) => {
         console.error('Error connecting to the database:', err.message);
         process.exit(1); // Exit the process if the connection fails
     }
-    console.log('Connected to the MySQL database_backend!');
+    console.log('Connected to the MySQL database!');
 });
 
 // Optional: Test the connection by running a query
@@ -27,4 +27,5 @@ db.query('SELECT 1', (err, results) => {
     }
 });
 
-module.exports = db.promise();
+module.exports = db;
+
