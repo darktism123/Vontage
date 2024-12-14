@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../config/db');  // Import database connection
-
 const router = express.Router();
 
 // Helper function to check availability

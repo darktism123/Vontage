@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const mainrouter = require('./router');
+const backendRoutes = require('./router_backend');
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(session({
 
 // Mount routes
 app.use('/', mainrouter);
-
+app.use('/back', backendRoutes);
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'Webpage')));
