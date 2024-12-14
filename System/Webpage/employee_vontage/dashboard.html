@@ -3,43 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Table</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/employee_vontage/js_employee_vontage/dashboard.js"></script>
+    <title>Employee Dashboard</title>
 </head>
 <body>
-    <h1>Employee Data</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Department</th>
-            </tr>
-        </thead>
-        <tbody id="employee-data">
-            <!-- Data will be injected here -->
-        </tbody>
-    </table>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2 class="sidebar-title">Menu</h2>
+            <a href="product_stock.html" id="product-stock-link">Product Stock</a>
+            <a href="customer_order_warehouse.html" id="customer-order-link" class="active">Customer Order</a>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Dashboard</h1>
+                <input type="text" placeholder="Search Order ID or Customer Name" class="search-bar">
+            </div>
 
-    <script src="/employee_vontage/js_employee_vontage/dashboard.js"></script>
+            <!-- Employee Table -->
+            <div class="table-section">
+                <h2>Employee Data</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-data">
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Revenue Chart -->
+            <div class="chart-section">
+                <h2>Revenue Chart</h2>
+                <canvas id="revenueChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
