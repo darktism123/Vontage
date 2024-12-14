@@ -1,15 +1,14 @@
 new Swiper('.swiper', {
-  loop: true,
-  slidesPerView: 4,
-  spaceBetween: 20,
-  autoHeight: true,
+  loop: true, // Enable looping
+  slidesPerView: 4, // Number of slides visible at a time
+  spaceBetween: 20, // Space between slides
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-button-next', // Right arrow
+    prevEl: '.swiper-button-prev', // Left arrow
   },
   pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
+    el: '.swiper-pagination', // Pagination circles
+    clickable: true, // Allow clicking on pagination bullets
   },
   breakpoints: {
     640: {

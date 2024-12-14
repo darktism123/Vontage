@@ -6,6 +6,8 @@ const loginRoutes = require('./routes/login');
 const checkAvailabilityRoutes = require('./routes/checkAvailability');
 const profileRoutes = require('./routes/profile'); 
 const addressRegisterRoutes = require('./routes/address_register');
+const latestProductsRoutes = require('./routes/lastest_products');
+const mostSalesRoutes = require('./routes/most_sales');
 
 const app = express.Router();
 
@@ -32,5 +34,7 @@ app.use('/loginRoutes', loginRoutes);
 app.use('/checkAvailabilityRoutes', checkAvailabilityRoutes);
 app.use('/profileRoutes', profileRoutes); 
 app.use('/addressRegisterRoutes', addressRegisterRoutes);
+app.use('/latestProductsRoutes',latestProductsRoutes);
+app.use('/mostSalesRoutes', mostSalesRoutes);
 
 module.exports = app;
