@@ -24,7 +24,33 @@
                 <h1>Dashboard</h1>
                 <input type="text" placeholder="Search Order ID or Customer Name" class="search-bar">
             </div>
-
+            <div class="products-and-chart">
+                <!-- Top Selling Products -->
+                <div class="table-section">
+                    <h1>Top Selling Products</h1>
+                    <table id="product-table">
+                        <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product No</th>
+                            <th>Size</th>
+                            <th>Stock Quantity</th>
+                            <th>Quantity Sold</th>
+                            <th>Category ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- ข้อมูลสินค้าจะถูกเติมที่นี่ -->
+                        </tbody>
+                    </table>                
+                </div>
+    
+                <!-- Revenue Chart -->
+                <div class="chart-section">
+                    <h2>Revenue Chart</h2>
+                    <canvas id="revenueChart" width="400" height="200"></canvas>
+                </div>
+            </div>
             <!-- Employee Table -->
             <div class="table-section">
                 <h2>Employee Data</h2>
@@ -44,12 +70,8 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Revenue Chart -->
-            <div class="chart-section">
-                <h2>Revenue Chart</h2>
-                <canvas id="revenueChart" width="400" height="200"></canvas>
-            </div>
+            <!-- Top Selling Products and Revenue Chart -->
+        
         </div>
     </div>
 </body>

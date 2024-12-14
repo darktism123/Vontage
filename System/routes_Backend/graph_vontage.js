@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
-
 const db = require('../config/db'); // ดึงการตั้งค่าฐานข้อมูล
 
 
@@ -24,3 +22,4 @@ exports.getGraphData = async (req, res) => {
         res.status(500).send('Internal server error. Please try again later.');
     }
 };
+

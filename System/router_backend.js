@@ -6,6 +6,7 @@ const router = express.Router();
 
 const employeeController = require('./routes_Backend/employee_vontage'); // Adjust path as needed
 const graphRoutes = require('./routes_Backend/graph_vontage');
+const most_sale = require('./routes_Backend/most_sale_dashboard');
 
 
 
@@ -23,10 +24,13 @@ router.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/admin.html'));
 });
 
+
+
 // เชื่อม router สำหรับพนักงาน
 
 router.get('/employee', employeeController.employeetable);
 router.get('/graph', graphRoutes.getGraphData);
+router.get('/most_product' ,most_sale.most_product);
 
 
 

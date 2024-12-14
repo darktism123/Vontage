@@ -75,3 +75,48 @@ fetch('/back/graph')
         }
     })
     .catch(error => console.error('Error fetching graph data:', error));
+
+
+
+
+
+    async function fetchTopSellingProducts() {
+        try {
+            const response = await fetch('/back/most_product'); // ตรวจสอบเส้นทางให้ถูกต้อง
+            const data = await response.json();
+    
+            if (data.success) {
+                const tableBody = document.getElementById('product-table').querySelector('tbody');
+                if (tableBody) {
+                    tableBody.innerHTML = ''; // ล้างข้อมูลเดิม
+    
+                    // เติมข้อมูลสินค้าลงในตาราง
+                    data.data.forEach(product => {
+                        const row = `
+                            <tr>
+                                <td>${product.product_id}</td>
+                                <td>${product.product_no}</td>
+                                <td>${product.size}</td>
+                                <td>${product.stock_quantity}</td>
+                                <td>${product.quantity_sold}</td>
+                                <td>${product.category_id}</td>
+                            </tr>
+                        `;
+                        tableBody.innerHTML += row;
+                    });
+                } else {
+                    console.error('Element with id "product-table" not found.');
+                }
+            } else {
+                alert('Failed to fetch products');
+            }
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            alert('Error fetching products. Please try again later.');
+        }
+    }
+    
+    // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+    window.onload = () => {
+        fetchTopSellingProducts(); // ดึงสินค้าขายดี
+    };

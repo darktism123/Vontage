@@ -82,7 +82,7 @@
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin: 20px 0;
+    flex: 2; /* ขยายพื้นที่ให้ตาราง */
 }
 
 /* Table styling */
@@ -93,6 +93,8 @@ table {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
     color: #333;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 thead {
@@ -154,23 +156,36 @@ td.price {
     text-align: right;
 }
 
-/* Add slight border-radius for cleaner design */
-table {
-    border-radius: 8px;
-    overflow: hidden;
-}
+
 /* Chart Section */
 .chart-section {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    width: 100%; /* กำหนดความกว้างเต็มพื้นที่ */
+    box-sizing: border-box; /* ให้ padding ไม่เกินขอบ container */
 }
 
 .chart-section h2 {
     margin-bottom: 20px;
     font-size: 1.2rem;
     color: #333;
+}
+
+.products-and-chart {
+    display: flex;
+    gap: 20px; /* ระยะห่างระหว่างตารางกับกราฟ */
+    margin: 20px 0; /* ระยะห่างด้านบนและล่าง */
+}
+
+
+
+/* Canvas Styling */
+.chart-section canvas {
+    display: block; /* แก้ไขค่าเริ่มต้นของ canvas */
+    width: 100%; /* ขยายเต็มความกว้าง */
+    height: auto; /* ให้ความสูงปรับอัตโนมัติตามอัตราส่วน */
 }
 
 /* Responsive Design */
