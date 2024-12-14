@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../config/db_back');
+
+
+const db = require('../config/db'); // ดึงการตั้งค่าฐานข้อมูล
+
 
 exports.getGraphData = async (req, res) => {
     try {
