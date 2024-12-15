@@ -1,48 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const openFormBtn = document.getElementById("open-form-btn");
-    const closeFormBtn = document.getElementById("close-form-btn");
-    const formContainer = document.getElementById("form-container");
-    const form = document.getElementById("employee-form");
-    const tableBody = document.getElementById("employee-table");
+document.addEventListener('DOMContentLoaded', () => {
+    fetchEmployees(); // โหลดข้อมูลครั้งแรก
+});
 
-    // Open form
-    openFormBtn.addEventListener("click", () => {
-        formContainer.classList.remove("hidden");
-    });
+const employeeTableBody = document.getElementById('employee-table-body');
+const loadingMessage = document.getElementById('loading-message');
 
-    // Close form
-    closeFormBtn.addEventListener("click", () => {
-        formContainer.classList.add("hidden");
-        form.reset();
-    });
+// ฟังก์ชันดึงข้อมูลพนักงานจาก Backend
+async function fetchEmployees() {
+    loadingMessage.classList.remove('hidden'); // แสดงข้อความ Loading
+    try {
+        const response = await fetch('/back/employee'); // เรียก API
+        if (!response.ok) throw new Error('Failed to fetch employee data.');
 
-    // Form submission
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+        const employees = await response.json();
+        renderEmployeeTable(employees); // แสดงข้อมูลบนตาราง
+    } catch (error) {
+        console.error('Error:', error.message);
+        alert('Unable to load data. Please try again.');
+    } finally {
+        loadingMessage.classList.add('hidden'); // ซ่อนข้อความ Loading
+    }
+}
 
-        const firstName = document.getElementById("first-name").value;
-        const lastName = document.getElementById("last-name").value;
-        const email = document.getElementById("email").value;
-        const city = document.getElementById("city").value;
-        const phone = document.getElementById("phone").value;
-        const jobs = document.getElementById("jobs").value;
-
-        // Add a new row to the table
-        const newRow = `
+// ฟังก์ชันสร้างตารางข้อมูล
+function renderEmployeeTable(employees) {
+    employeeTableBody.innerHTML = ''; // ล้างข้อมูลเก่า
+    employees.forEach(emp => {
+        const row = `
             <tr>
-                <td>${firstName}</td>
-                <td>${lastName}</td>
-                <td>${email}</td>
-                <td>${city}</td>
-                <td>${phone}</td>
-                <td>${jobs}</td>
+                <td>${emp.first_name}</td>
+                <td>${emp.last_name}</td>
+                <td>${emp.email}</td>
+                <td>${emp.password}</td>
+                <td>${emp.phone}</td>
+                <td>${emp.department_id}</td>
             </tr>
         `;
-
-        tableBody.insertAdjacentHTML("beforeend", newRow);
-
-        // Reset and close form
-        form.reset();
-        formContainer.classList.add("hidden");
+        employeeTableBody.insertAdjacentHTML('beforeend', row);
     });
-});
+}
+
+// Refresh Data
+document.getElementById('refresh-data-btn').addEventListener('click', fetchEmployees);

@@ -19,6 +19,10 @@ router.get('/test', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/test.html'));
 });
 
+router.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/admin.html'));
+});
+
 // เชื่อม router สำหรับพนักงาน
 
 router.get('/employee', employeeController.employeetable);
