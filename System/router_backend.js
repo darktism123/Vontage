@@ -29,7 +29,9 @@ router.get('/test', (req, res) => {
 router.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/admin.html'));
 });
-
+router.get('/shipping', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/customer_order_shipping.html'));
+});
 router.get('/stock/view', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/product_stock.html'));
 });
