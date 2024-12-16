@@ -18,11 +18,71 @@
     <div class="main-content">
         <div class="header">
             <h1>Employees</h1>
-            <button id="refresh-data-btn">Refresh Data</button>
+            <button id="refresh-data-btn" class="action-btn">Refresh Data</button>
+            <button id="open-popup-btn" class="action-btn">Add Employee</button>
         </div>
 
         <!-- Loading Message -->
         <div id="loading-message" class="hidden">Loading...</div>
+
+        <!-- Popup Form (Add/Edit Employee) -->
+        <!-- Add Employee Popup -->
+    <div id="popup-form" class="popup hidden">
+        <div class="popup-content">
+        <span id="close-popup-btn" class="close">&times;</span>
+        <h2 id="popup-title">Add Employee</h2>
+        <form id="add-employee-form"> <!-- แก้ ID ให้ตรง -->
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" required>
+
+            <label for="department-id">Department ID:</label>
+            <input type="number" id="department-id" required>
+
+            <button type="submit" class="submit-btn">Save</button>
+        </form>
+        </div>
+    </div>
+
+    <div id="edit-popup-form" class="popup hidden">
+        <div class="popup-content">
+            <span id="close-edit-popup-btn" class="close">&times;</span>
+            <h2>Edit Employee</h2>
+            <form id="edit-employee-form" onsubmit="updateEmployee(event)">
+                <label for="edit-firstName">First Name:</label>
+                <input type="text" id="edit-firstName" required>
+    
+                <label for="edit-lastName">Last Name:</label>
+                <input type="text" id="edit-lastName" required>
+    
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" readonly> <!-- Email แก้ไขไม่ได้ -->
+    
+                <label for="edit-password">Password:</label>
+                <input type="password" id="edit-password" required>
+    
+                <label for="edit-phone">Phone:</label>
+                <input type="tel" id="edit-phone" required>
+    
+                <label for="edit-department-id">Department ID:</label>
+                <input type="number" id="edit-department-id" required>
+    
+                <button type="submit" class="submit-btn">Update</button>
+            </form>
+        </div>
+    </div>
+    
 
         <!-- Employee Table -->
         <table id="employee-table">
@@ -34,6 +94,7 @@
                     <th>Password</th>
                     <th>Phone</th>
                     <th>Department ID</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="employee-table-body">
@@ -45,4 +106,3 @@
     <script src="/employee_vontage/js_employee_vontage/admin.js"></script>
 </body>
 </html>
-
