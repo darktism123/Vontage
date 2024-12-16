@@ -6,6 +6,7 @@ const backendRoutes = require('./router_backend');
 
 const app = express();
 
+
 // Custom secret key
 const SECRET_KEY = 'gysAFRV5CJjARzr0a1af';
 

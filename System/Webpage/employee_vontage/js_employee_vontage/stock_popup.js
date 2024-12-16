@@ -1,74 +1,88 @@
-// General modal handling logic
-function setupModal(modalId, triggerButtonId) {
-    const modal = document.getElementById(modalId);
-    const triggerButton = document.getElementById(triggerButtonId);
-    const closeBtn = modal.querySelector(".close");
-    const cancelButton = modal.querySelector("#cancelButton");
+document.addEventListener('DOMContentLoaded', () => {
+    const addProductButton = document.getElementById('addProductButton');
+    const addProductModal = document.getElementById('addProductModal');
+    const closeBtn = document.querySelector('#addProductModal .close');
+    const cancelBtn = document.querySelector('#addProductModal .close-btn');
+    const addProductForm = document.getElementById('addProductForm');
 
-    // Show the modal when the trigger button is clicked
-    if (triggerButton) {
-        triggerButton.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-    }
+    // เปิด Modal
+    addProductButton?.addEventListener('click', () => {
+        addProductModal.style.display = 'block';
+    });
 
-    // Close the modal when the close button is clicked
-    if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    }
+    // ปิด Modal
+    closeBtn?.addEventListener('click', () => {
+        addProductModal.style.display = 'none';
+    });
 
-    // Close the modal when the cancel button is clicked
-    if (cancelButton) {
-        cancelButton.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    }
+    cancelBtn?.addEventListener('click', () => {
+        addProductModal.style.display = 'none';
+    });
 
-    // Close the modal when clicking outside of it
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    window.addEventListener('click', (event) => {
+        if (event.target === addProductModal) {
+            addProductModal.style.display = 'none';
         }
     });
-}
 
-// Set up the Add Product modal
-setupModal("updateproduct", "addProductButton");
+    // ส่งข้อมูล Product Form ไป Backend
+    addProductForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-// Handle multiple Edit buttons for the Edit modal
-const editModal = document.getElementById("popupModal");
-const editButtons = document.querySelectorAll("button"); // Select all buttons
-const editCloseBtn = editModal.querySelector(".close");
-const editCancelButton = editModal.querySelector("#cancelButton");
+        const productName = document.getElementById('productName').value;
+        const categoryName = document.getElementById('category').value;
+        const size = document.getElementById('size').value;
+        const price = document.getElementById('price').value;
+        const stockQuantity = document.getElementById('stock').value;
+        const productImage = document.getElementById('productImage').files[0];
 
-// Add event listeners to all Edit buttons
-editButtons.forEach((button) => {
-    if (button.textContent.trim() === "Edit") {
-        button.addEventListener("click", () => {
-            editModal.style.display = "block";
-        });
-    }
-});
+        if (!productName || !categoryName || !size || !price || !stockQuantity) {
+            alert('Please fill in all required fields.');
+            return;
+        }
 
-// Close the Edit modal when the close button is clicked
-if (editCloseBtn) {
-    editCloseBtn.addEventListener("click", () => {
-        editModal.style.display = "none";
+        const formData = new FormData();
+        formData.append('product_name', productName);
+        formData.append('category_name', categoryName);
+        formData.append('size', size);
+        formData.append('price', price);
+        formData.append('stock_quantity', stockQuantity);
+        if (productImage) {
+            formData.append('image_main', productImage);
+        }
+
+        try {
+            const response = await fetch('/back/add-product', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert('Product added successfully!');
+                addProductModal.style.display = 'none';
+                fetchStockData(); // โหลดข้อมูลใหม่
+            } else {
+                alert(`Error: ${result.error}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to add product');
+        }
     });
-}
 
-// Close the Edit modal when the cancel button is clicked
-if (editCancelButton) {
-    editCancelButton.addEventListener("click", () => {
-        editModal.style.display = "none";
-    });
-}
+    // โหลดข้อมูลเมื่อหน้าเว็บพร้อมใช้งาน
+    async function fetchStockData() {
+        try {
+            const response = await fetch('/back/stock');
+            const { products } = await response.json();
 
-// Close the Edit modal when clicking outside of it
-window.addEventListener("click", (event) => {
-    if (event.target === editModal) {
-        editModal.style.display = "none";
+            console.log('Products:', products);
+            // Populate product table (ตามที่ต้องการ)
+        } catch (error) {
+            console.error('Failed to fetch stock data:', error);
+        }
     }
+
+    fetchStockData();
 });

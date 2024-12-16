@@ -1,114 +1,128 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css__employee_vontage/product-stock.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <title>Product Stock</title>
-    
-</head>
-<body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="product_stock.html" id="product-stock-link">Product Stock</a>
-        <a href="customer_order_warehouse.html" id="customer-order-link">Customer Order</a>
-    </div>
-
-    <div class="header">
-        <h1>Product Stock</h1>
-        <div class="tool">
-            <input type="text" placeholder="Search Product Name">
-            <button id="addProductButton">Add Product</button>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/product-stock.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <title>Product Stock</title>
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="/product_stock" id="product-stock-link">Product Stock</a>
+            <a href="/customer_order_warehouse" id="customer-order-link">Customer Order</a>
         </div>
+
+        <div class="header">
+            <h1>Product Stock</h1>
+            <div class="tool">
+                <input type="text" placeholder="Search Product Name" id="searchProduct">
+                <button id="addProductButton">Add Product</button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Piece</th>
+                        <th>Size</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Employee Modal -->
+        <div id="addProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add Product</h2>
+        <form id="addProductForm" enctype="multipart/form-data">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required><br><br>
+        
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+        
+            <label for="size">Size:</label>
+            <input type="text" id="size" name="size" required><br><br>
+        
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required><br><br>
+        
+            <label for="stock">Stock Quantity:</label>
+            <input type="number" id="stock" name="stock" required><br><br>
+        
+            <!-- เพิ่มฟิลด์สำหรับอัปโหลดรูปภาพ -->
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" name="productImage" accept="image/*" required><br><br>
+        
+            <button type="submit">Save</button>
+            <button type="button" class="close-btn">Cancel</button>
+        </form>
         
     </div>
+</div>
 
-    <!-- Content -->
-    <div class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Piece</th>
-                    <th>Size</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="https://via.placeholder.com/50" alt="Product Image"></td>
-                    <td>Apple Watch Series 4</td>
-                    <td>Digital Product</td>
-                    <td>$690.00</td>
-                    <td>63</td>
-                    <td>XL</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="https://via.placeholder.com/50" alt="Product Image"></td>
-                    <td>Microsoft Headphones</td>
-                    <td>Digital Product</td>
-                    <td>$199.00</td>
-                    <td>50</td>
-                    <td>L</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    
-
-    <div id="popupModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Update Prodate</h2>
-            <form>
-                <p>ID Product: <span>1234-xxxx</span></p>
-                <p>Product Name: <span>Lee Huu</span></p>
-                <p>Size: <span>XL</span></p>
-                <label for="quantity-add">Quantity-add:</label>
-                <input type="number" id="quantity-add" name="quantity-add"><br><br>
-                <label for="quantity-remove">Quantity-remove:</label>
-                <input type="number" id="quantity-remove" name="quantity-remove"><br><br>
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price"><br><br>
-                <button type="submit">Save</button>
-                <button type="button" id="cancelButton">Cancel</button>
-            </form>
-        </div>
-    </div>
-
-
-    <div id="updateproduct" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add Product</h2>
-            <form>
-                
-                <p>Product Name: <input type="number" id="quantity-add" name="quantity-add"><br><br></p>
-                <p>Size: <span>XL</span></p>
-                <label for="quantity-add">Quantity-add:</label>
-                <input type="number" id="quantity-add" name="quantity-add"><br><br>
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price"><br><br>
-                <button type="submit">Save</button>
-                <button type="button" id="cancelButton">Cancel</button>
-            </form>
-        </div>
-    </div>
-
-
-    <script src="js_employee_vontage/stock_popup.js"></script>
+<script src="/employee_vontage/js_employee_vontage/stock_popup.js"></script>
 </body>
-</html>
+
+
+        <!-- JS -->
+        <script >
+            // Fetch stock data from backend and populate table
+            async function fetchStockData() {
+            try {
+                const response = await fetch('/back/stock'); // API endpoint สำหรับข้อมูล Stock
+                const { products } = await response.json();
+
+                const tableBody = document.getElementById('productTableBody');
+                tableBody.innerHTML = '';
+
+                products.forEach(product => {
+                    const row = `
+                        <tr>
+                            <td>
+                                <img src="${product.image_main}" 
+                                alt="${product.product_name}" class="card-image">
+                            </td>
+                            <td>${product.product_name}</td>
+                            <td>${product.category_name || '-'}</td>
+                            <td>${product.price}</td>
+                            <td>${product.stock_quantity}</td>
+                            <td>${product.size}</td>
+                            <td>
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML('beforeend', row);
+                });
+            } catch (error) {
+                console.error('Error fetching stock data:', error);
+            }
+        }
+
+
+            // Event listener to fetch data when the page is loaded
+            document.addEventListener('DOMContentLoaded', fetchStockData);
+
+        
+            window.addEventListener('click', (event) => {
+                if (event.target === addProductModal) {
+                    modal.style.display = 'none';
+                }
+            });
+        </script>
+    </html>
