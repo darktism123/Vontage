@@ -2,6 +2,33 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
+router.get('/products', (req, res) => {
+    const query = `
+        SELECT p.product_id, p.product_name, p.price, p.image_main
+        FROM product p`;
+
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error('Error fetching products:', err.message);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'No products found' });
+        }
+
+        // Map results to return only the required fields
+        const products = results.map(product => ({
+            product_id: product.product_id,
+            product_name: product.product_name,
+            price: product.price,
+            image_main: product.image_main
+        }));
+
+        res.json({ products });
+    });
+});
+
 // Route to fetch product details including sizes and image_main
 router.get('/:product_id', (req, res) => {
     const productId = req.params.product_id;
@@ -40,5 +67,7 @@ router.get('/:product_id', (req, res) => {
         });
     });
 });
+
+// Route to fetch products with limited fields
 
 module.exports = router;

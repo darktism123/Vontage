@@ -26,6 +26,11 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/register_vontage.html'));
 });
 
+app.get('/casual', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/CASUAL.html'));
+});
+
+
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/login_vontage.html'));
 });

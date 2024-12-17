@@ -59,7 +59,7 @@
                 </div>
                 <div class="action-buttons">
                     <button class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
-                    <button class="buy-it-now">BUY IT NOW</button>
+                    <button class="buy-it-now" onclick="buyItNow()">BUY IT NOW</button>
                 </div>
                 <hr>
             </div>
@@ -262,6 +262,15 @@ async function fetchProductDetails() {
         document.body.innerHTML = '<p>Error loading product details.</p>';
     }
 }
+        function buyItNow() {
+            addToCart(); // Add the item to the cart
+            const selectedSizeButton = document.querySelector('.size.selected');
+            if (!selectedSizeButton) {
+                return;
+            }else {
+                window.location.href = '/your_cart';
+            }
+        }   
 
         // Adjust addToCart to use product_no
         async function addToCart() {
