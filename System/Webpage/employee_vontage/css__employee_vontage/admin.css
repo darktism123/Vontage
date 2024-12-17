@@ -81,26 +81,32 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* ป้องกันการล้นขอบ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #employee-table th {
-    background-color: #2980b9;
+    background: linear-gradient(135deg, #2980b9, #3498db);
     color: #ffffff;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
+    font-weight: bold;
 }
 
 #employee-table td {
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
 }
 
 #employee-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
 #employee-table tr:hover {
     background-color: #ecf0f1;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 /* Edit and Delete Buttons */

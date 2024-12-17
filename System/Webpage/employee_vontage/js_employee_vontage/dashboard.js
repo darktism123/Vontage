@@ -82,8 +82,18 @@ fetch('/back/graph')
 
     async function fetchTopSellingProducts() {
         try {
-            const response = await fetch('/back/most_product'); // ตรวจสอบเส้นทางให้ถูกต้อง
-            const data = await response.json();
+            const response = await fetch('/back/mostproduct');
+
+            let data;
+            try {
+                data = await response.json();
+            } catch (error) {
+                console.error('Failed to parse JSON:', error);
+                alert('Server returned invalid response.');
+                return;
+            }
+
+            console.log('Data:', data);
     
             if (data.success) {
                 const tableBody = document.getElementById('product-table').querySelector('tbody');

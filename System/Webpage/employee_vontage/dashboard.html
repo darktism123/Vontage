@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/dashboard.css">
+    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/slide.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/employee_vontage/js_employee_vontage/dashboard.js"></script>
     <title>Employee Dashboard</title>
@@ -12,9 +13,11 @@
     <div class="container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <h2 class="sidebar-title">Menu</h2>
-            <a href="product_stock.html" id="product-stock-link">Product Stock</a>
-            <a href="customer_order_warehouse.html" id="customer-order-link" class="active">Customer Order</a>
+            <h2 class="sidebar-title" style="padding: 10%;">Menu</h2>
+            <a href="/back/stock/view" id="product-stock-link">Product Stock</a>
+            <a href="/back/shipping">Order Status</a>
+            <a href="/back/customer_order_warehouse" id="customer-order-link">Customer Order</a>
+            <a href="/back/admin">Administrator</a>
         </div>
     
         <!-- Main Content -->
