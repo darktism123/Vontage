@@ -36,6 +36,9 @@ router.get('/admin', (req, res) => {
 });
 
 // แสดงหน้า product stock
+router.get('/shipping', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/customer_order_shipping.html'));
+});
 router.get('/stock/view', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/product_stock.html')); // ส่งไฟล์ HTML สำหรับหน้า product stock
 });
