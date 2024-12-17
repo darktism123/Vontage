@@ -25,10 +25,16 @@ router.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/dashboard.html')); // ส่งไฟล์ HTML สำหรับหน้า dashboard
 });
 
-// แสดงหน้า test
-router.get('/test', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/test.html')); // ส่งไฟล์ HTML สำหรับหน้า test
+
+router.get('/orderstatus_shipping', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/customer_order_shipping.html')); // ส่งไฟล์ HTML สำหรับหน้า dashboard
 });
+
+router.get('/orderstatus_warehouse', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Webpage/employee_vontage/customer_order_warehouse.html')); // ส่งไฟล์ HTML สำหรับหน้า dashboard
+});
+
+
 
 // แสดงหน้า admin
 router.get('/admin', (req, res) => {
