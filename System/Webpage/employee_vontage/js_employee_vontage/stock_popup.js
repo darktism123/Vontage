@@ -40,29 +40,60 @@ document.addEventListener('DOMContentLoaded', () => {
     closeEditBtn.addEventListener('click', () => editProductModal.style.display = 'none');
     cancelEditBtn.addEventListener('click', () => editProductModal.style.display = 'none');
 
-    // ฟังก์ชันสำหรับการเพิ่มสินค้า
+    // ส่งข้อมูล Product Form ไป Backend
     addProductForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const formData = new FormData(addProductForm);
+        const productName = document.getElementById('productName').value;
+        const categoryName = document.getElementById('category').value;
+        const size = document.getElementById('size').value;
+        const price = document.getElementById('price').value;
+        const stockQuantity = document.getElementById('stock').value;
+        const productImage = document.getElementById('productImage').files[0];
+
+        if (!productName || !categoryName || !size || !price || !stockQuantity) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('product_name', productName);
+        formData.append('category_name', categoryName);
+        formData.append('size', size);
+        formData.append('price', price);
+        formData.append('stock_quantity', stockQuantity);
+        if (productImage) {
+            formData.append('image_main', productImage);
+        }
+
         try {
             const response = await fetch('/back/add-product', {
                 method: 'POST',
-                body: formData
+                body: formData,
             });
-
-            const result = await response.json();
+            
+            let result;
+            try {
+                result = await response.json(); // พยายามแปลง Response เป็น JSON
+            } catch (error) {
+                console.error('Invalid JSON response:', error);
+                alert('An unexpected server error occurred.');
+                return;
+            }
+            
             if (response.ok) {
                 alert('Product added successfully!');
                 addProductModal.style.display = 'none';
                 fetchStockData();
             } else {
-                alert(`Error: ${result.error}`);
+                alert(`Error: ${result.error || 'Unknown error occurred'}`);
             }
         } catch (error) {
-            console.error('Error adding product:', error);
+            console.error('Error:', error);
+            alert('Failed to add product');
         }
     });
+    
 
     // ฟังก์ชันสำหรับการแก้ไขสินค้า
     editProductForm.addEventListener('submit', async (event) => {

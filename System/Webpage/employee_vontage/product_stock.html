@@ -69,19 +69,7 @@
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
-                    <!-- ตัวอย่างแถวข้อมูล -->
-                    <tr>
-                        <td><img src="image_path" alt="Product Image" class="card-image"></td>
-                        <td>Checked Shirt</td>
-                        <td>Spring</td>
-                        <td>$29.99</td>
-                        <td>50</td>
-                        <td>L</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
+                    <!-- Rows will be dynamically inserted here -->
                 </tbody>
             </table>
         </div>
@@ -111,7 +99,7 @@
                 <input type="number" id="stock" name="stock" required>
 
                 <label for="productImage">Product Image:</label>
-                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required><br><br>
 
                 <button type="submit">Save</button>
                 <button type="button" class="close-btn">Cancel</button>

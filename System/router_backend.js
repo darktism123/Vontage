@@ -58,7 +58,7 @@ router.get('/mostproduct', most_sale.most_product);
 router.get('/stock', stock_product.stock);
 
 // เพิ่มสินค้าใหม่
-router.post('/add-product', upload.single('image_main'), stock_product.add_product); // เพิ่มสินค้าใหม่พร้อมการอัปโหลดรูปภาพ
+router.post('/add-product', upload.single('image_main'), stock_product.add_product);
 
 // เพิ่มพนักงานใหม่
 router.post('/add_emp', adminController.addEmployee);
