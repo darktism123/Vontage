@@ -1,29 +1,42 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/product-stock.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <title>Product Stock</title>
-    </head>
-    <body>
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <a href="/product_stock" id="product-stock-link">Product Stock</a>
-            <a href="/customer_order_warehouse" id="customer-order-link">Customer Order</a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Meta tags สำหรับการตั้งค่า charset และ viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ลิงก์ไปยังไฟล์ CSS สำหรับการตกแต่งหน้าตา -->
+    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/product-stock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- ชื่อเรื่องของหน้า HTML -->
+    <title>Product Stock</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="/product_stock" id="product-stock-link" class="active">Product Stock</a>
+        <a href="/customer_order_warehouse" id="customer-order-link">Customer Order</a>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main">
+        <!-- Header ส่วนหัวของหน้า -->
         <div class="header">
             <h1>Product Stock</h1>
             <div class="tool">
+                <!-- ฟอร์มค้นหาสินค้าและปุ่มสำหรับเพิ่มสินค้า -->
                 <input type="text" placeholder="Search Product Name" id="searchProduct">
                 <button id="addProductButton">Add Product</button>
             </div>
         </div>
 
-        <!-- Content -->
+        <!-- Content ส่วนเนื้อหาหลัก -->
         <div class="content">
+            <!-- ตารางแสดงข้อมูลสินค้า -->
             <table>
                 <thead>
                     <tr>
@@ -31,98 +44,94 @@
                         <th>Product Name</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Piece</th>
+                        <th>Stock</th>
                         <th>Size</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
-                    <!-- Rows will be dynamically inserted here -->
+                    <!-- ตัวอย่างแถวข้อมูล -->
+                    <tr>
+                        <td><img src="image_path" alt="Product Image" class="card-image"></td>
+                        <td>Checked Shirt</td>
+                        <td>Spring</td>
+                        <td>$29.99</td>
+                        <td>50</td>
+                        <td>L</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-
-        <!-- Add Employee Modal -->
-        <div id="addProductModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Add Product</h2>
-        <form id="addProductForm" enctype="multipart/form-data">
-            <label for="productName">Product Name:</label>
-            <input type="text" id="productName" name="productName" required><br><br>
-        
-            <label for="category">Category:</label>
-            <input type="text" id="category" name="category" required>
-        
-            <label for="size">Size:</label>
-            <input type="text" id="size" name="size" required><br><br>
-        
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price" required><br><br>
-        
-            <label for="stock">Stock Quantity:</label>
-            <input type="number" id="stock" name="stock" required><br><br>
-        
-            <!-- เพิ่มฟิลด์สำหรับอัปโหลดรูปภาพ -->
-            <label for="productImage">Product Image:</label>
-            <input type="file" id="productImage" name="productImage" accept="image/*" required><br><br>
-        
-            <button type="submit">Save</button>
-            <button type="button" class="close-btn">Cancel</button>
-        </form>
-        
     </div>
-</div>
 
-<script src="/employee_vontage/js_employee_vontage/stock_popup.js"></script>
+    <!-- Modal สำหรับการเพิ่มสินค้า -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <!-- ปิด Modal -->
+            <span class="close">&times;</span>
+            <h2>Add Product</h2>
+            <!-- ฟอร์มสำหรับเพิ่มสินค้าใหม่ -->
+            <form id="addProductForm" enctype="multipart/form-data">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="size">Size:</label>
+                <input type="text" id="size" name="size" required>
+
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" required>
+
+                <label for="stock">Stock Quantity:</label>
+                <input type="number" id="stock" name="stock" required>
+
+                <label for="productImage">Product Image:</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+
+                <button type="submit">Save</button>
+                <button type="button" class="close-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal สำหรับการแก้ไขสินค้า -->
+    <div id="editProductModal" class="modal">
+        <div class="modal-content">
+            <!-- ปิด Modal -->
+            <span class="close" id="closeEditModal">&times;</span>
+            <h2>Edit Product</h2>
+            <!-- ฟอร์มสำหรับการแก้ไขสินค้า -->
+            <form id="editProductForm" enctype="multipart/form-data">
+                <label for="editProductName">Product Name:</label>
+                <input type="text" id="editProductName" name="editProductName" required>
+
+                <label for="editCategory">Category:</label>
+                <input type="text" id="editCategory" name="editCategory" required>
+
+                <label for="editSize">Size:</label>
+                <input type="text" id="editSize" name="editSize" required>
+
+                <label for="editPrice">Price:</label>
+                <input type="text" id="editPrice" name="editPrice" required>
+
+                <label for="editStock">Stock Quantity:</label>
+                <input type="number" id="editStock" name="editStock" required>
+
+                <button type="submit">Update</button>
+                <button type="button" class="close-btn" id="cancelEdit">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link to the JS file (Stock Popup functionality) -->
+    <script src="/employee_vontage/js_employee_vontage/stock_popup.js"></script>
+
 </body>
 
-
-        <!-- JS -->
-        <script >
-            // Fetch stock data from backend and populate table
-            async function fetchStockData() {
-            try {
-                const response = await fetch('/back/stock'); // API endpoint สำหรับข้อมูล Stock
-                const { products } = await response.json();
-
-                const tableBody = document.getElementById('productTableBody');
-                tableBody.innerHTML = '';
-
-                products.forEach(product => {
-                    const row = `
-                        <tr>
-                            <td>
-                                <img src="${product.image_main}" 
-                                alt="${product.product_name}" class="card-image">
-                            </td>
-                            <td>${product.product_name}</td>
-                            <td>${product.category_name || '-'}</td>
-                            <td>${product.price}</td>
-                            <td>${product.stock_quantity}</td>
-                            <td>${product.size}</td>
-                            <td>
-                                <button class="edit-btn">Edit</button>
-                                <button class="delete-btn">Delete</button>
-                            </td>
-                        </tr>
-                    `;
-                    tableBody.insertAdjacentHTML('beforeend', row);
-                });
-            } catch (error) {
-                console.error('Error fetching stock data:', error);
-            }
-        }
-
-
-            // Event listener to fetch data when the page is loaded
-            document.addEventListener('DOMContentLoaded', fetchStockData);
-
-        
-            window.addEventListener('click', (event) => {
-                if (event.target === addProductModal) {
-                    modal.style.display = 'none';
-                }
-            });
-        </script>
-    </html>
+</html>
