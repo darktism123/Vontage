@@ -2,69 +2,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css__employee_vontage/customer-order.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/slide.css">
-    
+    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/customer-order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">    
     <title>Customer Order</title>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2 class="sidebar-title" style="padding: 10%;">Menu</h2>
-        <a href="/back/stock/view" id="product-stock-link">Product Stock</a>
-        <a href="/back/shipping">Order Status</a>
-        <a href="/back/customer_order_warehouse" id="customer-order-link">Customer Order</a>
-        <a href="/back/admin">Administrator</a>
-        <a href="/back/dashboard">Dashboard</a>
-    </div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2 class="sidebar-title" style="padding: 10%;">Menu</h2>
+            <a href="/back/stock/view" id="product-stock-link">Product Stock</a>
+            <a href="/back/shipping">Order Status</a>
+            <a href="/back/order" id="customer-order-link">Customer Order</a>
+            <a href="/back/admin">Administrator</a>
+            <a href="/back/dashboard">Dashboard</a>
+        </div>
 
-    <div class="header">
-        <h1>Customer Order</h1>
-        <input type="text" placeholder="Search Order ID or Customer Name">
-    </div>
+        <!-- Content -->
 
-    <!-- Content -->
-    <div class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Code product</th>
-                    <th>Order Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Example Order 1 -->
-                <tr>
-                    <td>#12345</td>
-                    <td>John Doe</td>
-                    <td>Apple Watch Series 4</td>
-                    <td>2</td>
-                    <td>xxxxxx</td>
-                    <td>2024-12-10</td>
-                    <td>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-                <!-- Example Order 2 -->
-                <tr>
-                    <td>#12346</td>
-                    <td>Jane Smith</td>
-                    <td>Microsoft Headphones</td>
-                    <td>1</td>
-                    <td>xxxxxx</td>
-                    <td>2024-12-09</td>
-                    <td>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="main">
+            <h1>Customer Orders</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>value</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+        
+    <script>
+        // ดึงข้อมูลจาก backend API
+        fetch('/back/status')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tableBody = document.getElementById('productTableBody');
+
+                // ตรวจสอบว่ามีข้อมูลหรือไม่
+                if (data.success && data.data.length > 0) {
+                    // Loop ข้อมูลและแสดงในตาราง
+                    data.data.forEach(order => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${order.order_id}</td>
+                            <td>${order.customer_id}</td>
+                            <td>${order.product_name || 'N/A'}</td>
+                            <td>${order.quantity}</td>
+                            <td>${order.sub_total}</td>
+                            <td>${order.status}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    tableBody.innerHTML = `<tr><td colspan="6">No records found</td></tr>`;
+                }
+            })
+            .catch(err => {
+                console.error('Fetch error:', err);
+                document.getElementById('productTableBody').innerHTML = `
+                    <tr><td colspan="6">Failed to fetch data</td></tr>
+                `;
+            });
+    </script>
 </body>
 </html>

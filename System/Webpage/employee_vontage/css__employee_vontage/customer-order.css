@@ -1,81 +1,236 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.sidebar {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    width: 550px;
-    padding-top: 20px;
+body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #ecf0f1;
 }
 
 .sidebar a {
-    text-decoration: none;
-    color: #ecf0f1;
-    padding: 10px 20px;
-    width: 100%;
-    text-align: left;
     display: block;
-    transition: background 0.3s;
+    text-decoration: none;
+    color: #bdc3c7;
+    padding: 12px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.sidebar a.active,
-.sidebar a:hover {
+.sidebar a:hover,
+.sidebar a.active {
     background-color: #34495e;
-    border-left: 4px solid #3498db;
+    color: #1abc9c;
+    border-left: 5px solid #1abc9c;
 }
 
-.header {
-    margin-left: 250px;
+/* Main Content */
+.main {
+    margin-left: 220px; /* กำหนดขยับพื้นที่เท่า sidebar */
+    width: calc(100% - 220px); /* ทำให้ content เหลือพื้นที่เต็ม */
+    background-color: #ffffff;
+    min-height: 100vh;
     padding: 20px;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
+    overflow-x: auto;
 }
 
-.content {
-    margin-left: 250px;
-    padding: 20px;
+.main h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2c3e50;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+table th, table td {
     border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
 }
 
-th {
-    background-color: #f9f9f9;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    padding: 6px 12px;
-    margin: 2px;
-    cursor: pointer;
-    border: none;
-    background-color: #007bff;
+table thead {
+    background-color: #34495e;
     color: white;
-    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #0056b3;
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+    background-color: #e8f6f3;
+    transition: background-color 0.3s;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #34495e;
+}
+
+.header .tool input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.header .tool button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header .tool button:hover {
+    background-color: #16a085;
+}
+
+
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #e8f6f3;
+    transition: background 0.3s ease;
+}
+
+table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Action Buttons */
+button.edit-btn, button.delete-btn {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.edit-btn {
+    background-color: #28a745;
+}
+
+button.edit-btn:hover {
+    background-color: #218838;
+}
+
+button.delete-btn {
+    background-color: #dc3545;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content form input,
+.modal-content form button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-content form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #218838;
+}
+
+span.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+span.close:hover {
+    color: #333;
 }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 new Swiper('.swiper', {
   loop: true, // Enable looping
   slidesPerView: 4, // Number of slides visible at a time
@@ -88,42 +87,30 @@ async function fetchMostSoldProducts() {
   }
 }
 
-// Call the functions to populate data when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  fetchLatestProducts(); // Load the latest products
-  fetchMostSoldProducts(); // Load the most sold products
-=======
-document.addEventListener('DOMContentLoaded', function () {
-  new Swiper('.swiper', {
+    // Fetch data when page is loaded
+    fetchLatestProducts(); // โหลดข้อมูลสินค้าล่าสุด
+    fetchMostSoldProducts(); // โหลดข้อมูลสินค้าขายดี
+  
+    // Initialize Swiper
+    new Swiper('.swiper', {
       loop: true, // วนลูป
       slidesPerView: 4, // จำนวนการ์ดที่แสดง
       spaceBetween: 20, // ระยะห่างระหว่างการ์ด
       navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       pagination: {
-          el: '.swiper-pagination',
-          clickable: true, // ให้ pagination กดได้
+        el: '.swiper-pagination',
+        clickable: true, // ให้ pagination กดได้
       },
       breakpoints: {
-          640: {
-              slidesPerView: 1, // หน้าจอเล็กแสดง 1 การ์ด
-              spaceBetween: 10,
-          },
-          768: {
-              slidesPerView: 2, // หน้าจอขนาดกลางแสดง 2 การ์ด
-              spaceBetween: 15,
-          },
-          1024: {
-              slidesPerView: 3, // หน้าจอใหญ่แสดง 3 การ์ด
-              spaceBetween: 20,
-          },
-          1440: {
-              slidesPerView: 4, // หน้าจอใหญ่มากแสดง 4 การ์ด
-              spaceBetween: 25,
-          },
+        640: { slidesPerView: 1, spaceBetween: 10 },
+        768: { slidesPerView: 2, spaceBetween: 15 },
+        1024: { slidesPerView: 3, spaceBetween: 20 },
+        1440: { slidesPerView: 4, spaceBetween: 25 },
       },
+    });
   });
->>>>>>> 242af5c0324efbd17a7ace48b386ae85456a3570
-});
+  

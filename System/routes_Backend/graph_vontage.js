@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db'); // ดึงการตั้งค่าฐานข้อมูล
-<<<<<<< HEAD
-=======
 
->>>>>>> 242af5c0324efbd17a7ace48b386ae85456a3570
 
 exports.getGraphData = async (req, res) => {
     try {
