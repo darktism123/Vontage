@@ -107,9 +107,9 @@ body{
     text-decoration: none;
 }
 .swiper {
-    overflow: visible; /* ปรับให้ swiper สามารถแสดงได้เต็มที่ */
-    padding: 20px 0; /* ลด padding ด้านบนและล่าง */
-    max-height: 100%; /* จำกัดความสูงไม่ให้เกิน container */
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
 }
 
 .swiper-wrapper {
@@ -121,12 +121,11 @@ body{
 }
 
 .swiper-slide {
-    flex-shrink: 0;
-    width: auto;
-    height: auto; /* ปรับให้ความสูงยืดหยุ่นตามเนื้อหา */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background: #f9f9f9; /* Temporary background for visibility */
+    height: 200px; /* Adjust height */
 }
 
 .card-item {
@@ -202,9 +201,22 @@ body{
 }
 
 .swiper-pagination {
-    
-    text-align: center;
-    margin-bottom: 10px !important; /* เพิ่มระยะห่างด้านล่าง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    margin: 0 5px;
+    border-radius: 50%;
+    opacity: 1;
+    cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+    background: #007bff;
 }
 
 /* สไตล์สำหรับปุ่ม Swiper */

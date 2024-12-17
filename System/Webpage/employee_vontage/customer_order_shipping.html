@@ -1,65 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css__employee_vontage/customer-order.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <title>Customer Order</title>
+    <title>Customer Orders</title>
+    <link rel="stylesheet" href="/employee_vontage/css__employee_vontage/shipping.css">
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="product-stock.html" id="product-stock-link">Product Stock</a>
-        <a href="customer-order.html" id="customer-order-link" class="active">Customer Order</a>
+        <a href="/back/stock/view">Product Stock</a>
+        <a href="/back/shipping">Order Status</a>
+        <a href="/back/admin" class="active">Administrator</a>
     </div>
 
-    <div class="header">
+    <!-- Main Section -->
+    <div class="main-content">
         <h1>Customer Order</h1>
-        <input type="text" placeholder="Search Order ID or Customer Name">
-    </div>
-
-    <!-- Content -->
-    <div class="content">
-        <table>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search Order ID or Customer">
+        </div>
+        <table border="1">
             <thead>
                 <tr>
                     <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
+                    <th>Customer ID</th>
                     <th>Order Date</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Example Order 1 -->
-                <tr>
-                    <td>#12345</td>
-                    <td>John Doe</td>
-                    <td>Apple Watch Series 4</td>
-                    <td>2</td>
-                    <td>$1380.00</td>
-                    <td>2024-12-10</td>
-                    <td>
-                        <button>success</button>
-                    </td>
-                </tr>
-                <!-- Example Order 2 -->
-                <tr>
-                    <td>#12346</td>
-                    <td>Jane Smith</td>
-                    <td>Microsoft Headphones</td>
-                    <td>1</td>
-                    <td>$199.00</td>
-                    <td>2024-12-09</td>
-                    <td>
-                        <button>success</button>
-                    </td>
-                </tr>
+            <tbody id="shipping-table-body">
+                <!-- Rows will be inserted dynamically -->
             </tbody>
         </table>
+        
     </div>
+
+    <script src="/employee_vontage/js_employee_vontage/shipping.js"></script>
 </body>
 </html>
