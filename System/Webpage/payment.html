@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css_vontage/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
 </head>
 <body>
     <script src="js_vontage/navbar_connect.js"></script>
@@ -22,52 +21,8 @@
                     <th>PRICE</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_1.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">145</td>
-                </tr>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_5.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">180</td>
-                </tr>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_6.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">240</td>
-                </tr>
-                <tr>
-                    <td class="total" colspan="3">
-                        <h3>TOTAL</h3>
-                    </td>
-                    <td class="total_price">565</td>
-                </tr>
+            <tbody id="cart-items-body">
+                <!-- Cart items will be dynamically added here -->
             </tbody>
         </table>
         <div class="payment-container">
@@ -82,10 +37,10 @@
             <div class="destination" id="destination">
                 <h5>THANK YOU</h5>
             </div>
-            <button class="submit-button">Submit</button>
+            <button class="submit-button" onclick="submitOrder()">Submit</button>
         </div>
     </div>
-
+    
     <script src="js_vontage/payment.js"></script>
 </body>
 </html>

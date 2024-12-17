@@ -7,93 +7,68 @@
     <link rel="stylesheet" href="css_vontage/details.css">
     <link rel="stylesheet" href="css_vontage/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="js_vontage/details.js"></script>
 </head>
 <body>
     <script src="js_vontage/navbar_connect.js"></script>
     <div id="header-container"></div>
-<div class="container">
 
-    <div class="show_pic">
-        <div class="column">
-            <div class="row">
-                <img class="demo cursor" src="image_vontage/T-shirt1.png" onclick="currentSlide(1)">
+    <div class="container">
+        <!-- Product Images Section -->
+        <div class="show_pic">
+            <div class="column" id="thumbnails">
+                <!-- Thumbnails will be dynamically populated -->
             </div>
-            <div class="row">
-                <img class="demo cursor" src="image_vontage/T-shirt2.png" onclick="currentSlide(2)">
-            </div>
-            <div class="row">
-                <img class="demo cursor" src="image_vontage/T-shirt3.png" onclick="currentSlide(3)">
-            </div>
-            <div class="row">
-                <img class="demo cursor" src="image_vontage/T-shirt4.png" onclick="currentSlide(4)">
+            <div class="mainslide">
+                <div id="main-image-container" class="picture">
+                    <!-- Slides for main images will be dynamically populated -->
+                </div>
+                <div class="arrow">
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
             </div>
         </div>
-        <div class="mainslide">
-            <div class="picture">
-                <div class="mySlides fade">
-                    <img src="image_vontage/T-shirt1.png" >
+        
+        <!-- Product Details Section -->
+        <div class="details">
+            <div class="product-details">
+                <h1 class="product-name">Loading...</h1>
+                <div class="price">
+                    <span class="current-price"></span>
                 </div>
-                <div class="mySlides fade">
-                    <img src="image_vontage/T-shirt2.png" >
+                <hr>
+                <div class="size-selection">
+                    <h3>Size</h3>
+                    <div class="sizes" id="size-container">
+                        <button class="size" data-size="S">S</button>
+                        <button class="size" data-size="M">M</button>
+                        <button class="size" data-size="L">L</button>
+                        <button class="size" data-size="XL">XL</button>
+                        <button class="size" data-size="2XL">2XL</button>
+                        <button class="size" data-size="3XL">3XL</button>
+                    </div>
                 </div>
-                <div class="mySlides fade">
-                    <img src="image_vontage/T-shirt3.png" >
+                
+                <div class="quantity-selection">
+                    <h3>Quantity</h3>
+                    <div class="quantity">
+                        <button class="quantity-btn">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="quantity-btn">+</button>
+                    </div>
                 </div>
-                <div class="mySlides fade">
-                    <img src="image_vontage/T-shirt4.png" >
+                <div class="action-buttons">
+                    <button class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
+                    <button class="buy-it-now">BUY IT NOW</button>
                 </div>
-                <!-- Next and previous buttons -->
+                <hr>
             </div>
-            <div class="arrow">
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
+            <div class="details_content">
+                <h1><strong>DETAILS</strong></h1>
+                <p class="description">Loading description...</p>
             </div>
         </div>
     </div>
-    
-    <div class="details">
-        <div class="product-details">
-            <h1>One Life Graphic T-shirt</h1>
-            <div class="price">
-                <span class="current-price">$180</span>
-                <span class="original-price">$300</span>
-                <span class="discount">-40%</span>
-            </div>
-            <hr>
-            <div class="size-selection">
-                <h3>Size</h3>
-                <div class="sizes">
-                    <button class="size">S</button>
-                    <button class="size">M</button>
-                    <button class="size">L</button>
-                    <button class="size">XL</button>
-                    <button class="size disabled">2XL</button>
-                    <button class="size disabled">3XL</button>
-                </div>
-            </div>
-            <div class="quantity-selection">
-                <h3>Quantity</h3>
-                <div class="quantity">
-                    <button class="quantity-btn">-</button>
-                    <span class="quantity-value">1</span>
-                    <button class="quantity-btn">+</button>
-                </div>
-            </div>
-            <div class="action-buttons">
-                <button class="add-to-cart">ADD TO CART</button>
-                <button class="buy-it-now">BUY IT NOW</button>
-            </div>
-            <hr>
-        </div>
-        <div class="details_content">
-            <h1><strong>DETAILS</strong></h1>
-            <P>This graphic t-shirt which is perfect<br> for any occasion. Crafted from a <br>soft and breathable fabric, it offers <br>superior comfort and style.</P>
-        </div>
-    </div>
-</div>
-
-    <script src="js_vontage/details.js"></script>
 
     <footer>
         <div class="footer-section">
@@ -101,11 +76,10 @@
                 <h4>Exclusive</h4>
                 <p>Subscribe</p>
                 <p>Get 10% off your first order</p>
-    
             </div>
             <div class="column">
                 <h4>Support</h4>
-                <p>11 Bijoy sarani, Dhaka,</p>
+                <p>11 Bijoy Sarani, Dhaka,</p>
                 <p>DH 1216, Bangladesh.</p>
                 <p>exclusive@gmail.com</p>
                 <p>+88015-88888-9999</p>
@@ -128,7 +102,6 @@
             <div class="column">
                 <h4>Download App</h4>
                 <p>Save $3 with App New User Only</p>
-                
                 <div class="social-icons">
                     <i class="fab fa-facebook"></i>
                     <i class="fab fa-twitter"></i>
@@ -139,5 +112,233 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let quantity = 1; // Default quantity value
+
+        // Function to update quantity
+        function updateQuantity(change) {
+            const quantityElement = document.querySelector('.quantity-value');
+            quantity = Math.max(1, quantity + change); // Ensure quantity doesn't go below 1
+            quantityElement.innerText = quantity;
+        }
+
+        // Add event listeners for quantity buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const quantityButtons = document.querySelectorAll('.quantity-btn');
+            quantityButtons[0].addEventListener('click', () => updateQuantity(-1)); // Decrease button
+            quantityButtons[1].addEventListener('click', () => updateQuantity(1)); // Increase button
+        });
+
+        // Fetch product details and populate the UI
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchProductDetails(); // Fetch product details on page load
+        });
+
+        // Function to fetch product details and populate the UI
+        async function fetchProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product_id');
+
+            if (!productId) {
+                document.body.innerHTML = '<p>Product ID is missing!</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/detailsRoutes/${productId}`);
+                const product = await response.json();
+
+                if (response.ok) {
+                    // Populate product details
+                    document.querySelector('.product-name').innerText = product.product_name;
+                    document.querySelector('.current-price').innerText = `$${product.price}`;
+                    document.querySelector('.description').innerHTML = product.description;
+                    
+                    // Populate size buttons
+                    const availableSizes = product.sizes || [];
+                    const sizeButtons = document.querySelectorAll('.size');
+                    sizeButtons.forEach(button => {
+                        const buttonSize = button.innerText;
+                        if (!availableSizes.includes(buttonSize)) {
+                            button.classList.add('disabled');
+                            button.style.cursor = 'not-allowed';
+                        } else {
+                            button.classList.remove('disabled');
+                            button.style.cursor = 'pointer';
+                        }
+                    });
+                
+                    // Populate images
+                    populateImages(product.images);
+                } else {
+                    document.body.innerHTML = `<p>Error: ${product.message || 'Product not found'}</p>`;
+                }
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+                document.body.innerHTML = '<p>Error loading product details.</p>';
+            }
+        }
+
+        // Function to populate product images
+        function populateImages(images) {
+            const thumbnails = document.getElementById('thumbnails');
+            const mainSlides = document.getElementById('main-image-container');
+            thumbnails.innerHTML = '';
+            mainSlides.innerHTML = '';
+
+            images.forEach((imageSrc, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.classList.add('row');
+                thumbnail.innerHTML = `<img class="demo cursor" src="${imageSrc}" alt="Thumbnail ${index + 1}" onclick="currentSlide(${index + 1})">`;
+                thumbnails.appendChild(thumbnail);
+
+                const slide = document.createElement('div');
+                slide.classList.add('mySlides', 'fade');
+                slide.style.display = index === 0 ? 'block' : 'none';
+                slide.innerHTML = `<img src="${imageSrc}" alt="Image ${index + 1}">`;
+                mainSlides.appendChild(slide);
+            });
+        }
+
+        // Handle size selection
+        document.addEventListener('DOMContentLoaded', () => {
+            const sizeButtons = document.querySelectorAll('.size');
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (!button.classList.contains('disabled')) {
+                        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                        button.classList.add('selected');
+                    }
+                });
+            });
+        });
+        
+        // Add product to cart
+// Fetch product details and populate the UI
+async function fetchProductDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product_id');
+
+    if (!productId) {
+        document.body.innerHTML = '<p>Product ID is missing!</p>';
+        return;
+    }
+
+    try {
+        const response = await fetch(`/detailsRoutes/${productId}`);
+        const product = await response.json();
+
+        if (response.ok) {
+            // Populate product details
+            document.querySelector('.product-name').innerText = product.product_name;
+            document.querySelector('.current-price').innerText = `$${product.price}`;
+            document.querySelector('.description').innerHTML = product.description;
+            // Assume `product.product_no` is part of the response
+            const productNo = product.product_no;  
+
+            // Populate size buttons and attach product_no to each button
+            const availableSizes = product.sizes || [];
+            const sizeButtons = document.querySelectorAll('.size');
+            sizeButtons.forEach(button => {
+                button.setAttribute('data-product-no', productNo);  // Set product_no as a data attribute
+                const buttonSize = button.innerText;
+                if (!availableSizes.includes(buttonSize)) {
+                    button.classList.add('disabled');
+                    button.style.cursor = 'not-allowed';
+                } else {
+                    button.classList.remove('disabled');
+                    button.style.cursor = 'pointer';
+                }
+            });
+
+            // Populate images
+            populateImages(product.images);
+        } else {
+            document.body.innerHTML = `<p>Error: ${product.message || 'Product not found'}</p>`;
+        }
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+        document.body.innerHTML = '<p>Error loading product details.</p>';
+    }
+}
+
+        // Adjust addToCart to use product_no
+        async function addToCart() {
+            const selectedSizeButton = document.querySelector('.size.selected');
+            if (!selectedSizeButton) {
+                alert("Please select a size before adding to the cart.");
+                return;
+            }
+
+            const productId = new URLSearchParams(window.location.search).get('product_id'); // Get product_id
+            const selectedSize = selectedSizeButton.innerText.trim(); // Size as string (e.g., "L", "M")
+
+            // Fetch product_no dynamically from the backend
+            let productNo;
+            try {
+                const response = await fetch(`/productNoRoutes/getProductNo?product_id=${productId}&size=${selectedSize}`);
+                const data = await response.json();
+
+                if (!response.ok || !data.product_no) {
+                    alert("Error retrieving product details. Please try again.");
+                    return;
+                }
+                productNo = data.product_no; // Retrieved product_no
+            } catch (error) {
+                console.error("Error fetching product number:", error);
+                alert("Error adding product to cart.");
+                return;
+            }
+
+            const productImage = document.querySelector('#main-image-container img').src;
+            const productName = document.querySelector('.product-name').innerText;
+            const productPrice = document.querySelector('.current-price').innerText;
+            const quantity = parseInt(document.querySelector('.quantity-value').innerText, 10);
+
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Prevent duplicate items with the same product_no
+            const existingItemIndex = cartItems.findIndex(item => item.product_no === productNo);
+            if (existingItemIndex !== -1) {
+                alert("This item with the selected size is already in your cart.");
+                return;
+            }
+
+            // Add product to cart
+            cartItems.push({
+                product_id: productId,
+                product_no: productNo, // Include the exact product_no
+                name: productName,
+                price: productPrice,
+                size: selectedSize,
+                image_main: productImage,
+                quantity: quantity,
+            });
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert("Item added to cart!");
+        }
+
+        // Image slider functionality
+        let slideIndex = 1;
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.mySlides');
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex - 1].style.display = 'block';
+        }
+    </script>
+
+    <script src="js_vontage/details.js"></script>
 </body>
 </html>

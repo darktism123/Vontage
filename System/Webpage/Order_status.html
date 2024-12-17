@@ -3,77 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASUAL</title>
+    <title>Order Status</title>
     <link rel="stylesheet" href="css_vontage/Order_status.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css_vontage/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="js_vontage/details.js"></script>
 </head>
 <body>
     <script src="js_vontage/navbar_connect.js"></script>
     <div id="header-container"></div>
+
     <div class="menu_cart">
         <div class="border_cart">
             <a href="your_cart.html" class="your_cart"><strong>Your cart</strong></a>
         </div>
         <div class="border_order">
-            <a href="Order_status.html" class="active"><strong>Order status</strong></a>
+            <a href="Order_status.html" class="active"><strong>Order Status</strong></a>
         </div>
     </div>
+
     <div class="container">
+        <h1>My Orders</h1>
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Item</th>
+                    <th>Item</th>
+                    <th>Product Name</th>
                     <th>QUANTITY</th>
+                    <th>SUBTOTAL</th>
                     <th>STATUS</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_1.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">Preparing</td>
-                </tr>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_5.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">Preparing</td>
-                </tr>
-                <tr>
-                    <td class="item-image">
-                        <img src="image_vontage/card_NewArrivals_6.png" alt="Item">
-                    </td>
-                    <td>
-                        <div class="item_name">
-                            <h3><strong>Gradient Graphic T-shirt</strong></h3>
-                            <h5>Size: Large</h5>
-                        </div>
-                    </td>
-                    <td class="uqantity">1</td>
-                    <td class="status">Preparing</td>
-                </tr>
+            <tbody id="order-items-body">
+                <!-- Order items will be dynamically added here -->
             </tbody>
         </table>
     </div>
-    
-    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", fetchOrderStatus);
+
+        async function fetchOrderStatus() {
+            const orderContainer = document.getElementById('order-items-body');
+
+            try {
+                // Fetch the customer ID dynamically
+                const profileResponse = await fetch('/profileRoutes/details');
+                if (!profileResponse.ok) throw new Error("Unable to fetch user details");
+
+                const profileData = await profileResponse.json();
+                const customerId = profileData.customer_id;
+
+                if (!customerId) {
+                    orderContainer.innerHTML = '<tr><td colspan="5">User not logged in.</td></tr>';
+                    return;
+                }
+
+                // Fetch orders for the logged-in customer
+                const response = await fetch(`/orderRoutes/userOrders/${customerId}`);
+
+                if (!response.ok) throw new Error("Failed to fetch orders.");
+
+                const orders = await response.json();
+
+                // Clear existing content
+                orderContainer.innerHTML = '';
+
+                // Check if there are no orders
+                if (orders.length === 0) {
+                    orderContainer.innerHTML = '<tr><td colspan="5">No orders found.</td></tr>';
+                    return;
+                }
+
+                // Dynamically populate table rows
+                orders.forEach(order => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td class="item-image">
+                            <img src="${order.image_main}" alt="${order.product_name}" style="width: 100px; height: auto;">
+                        </td>
+                        <td>
+                            <div class="item_name">
+                                <h3><strong>${order.product_name}</strong></h3>
+                                <h5>Product No: ${order.product_no}</h5>
+                            </div>
+                        </td>
+                        <td class="quantity">${order.quantity}</td>
+                        <td class="sub_total">$${parseFloat(order.sub_total).toFixed(2)}</td>
+                        <td class="status">${order.status}</td>
+                    `;
+
+                    orderContainer.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching order data:', error);
+                orderContainer.innerHTML = '<tr><td colspan="5">Error loading orders. Please try again later.</td></tr>';
+            }
+        }
+    </script>
 </body>
 </html>

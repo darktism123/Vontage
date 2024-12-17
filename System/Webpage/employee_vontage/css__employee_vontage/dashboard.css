@@ -1,0 +1,209 @@
+/* Container layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #ecf0f1;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #bdc3c7;
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-left: 4px solid #1abc9c;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+}
+
+.header .search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+/* Table Section */
+.table-section {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex: 2; /* ขยายพื้นที่ให้ตาราง */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #f9f9f9;
+    text-align: left;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:last-child td {
+    border-bottom: none; /* Remove bottom border for the last row */
+}
+
+/* Row hover effect */
+tbody tr:hover {
+    background-color: #f4f4f4;
+}
+
+/* Text alignment */
+th:first-child, td:first-child {
+    text-align: left;
+}
+
+th {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #555;
+}
+
+/* Status column styling */
+.status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status.stock .dot {
+    background-color: green;
+}
+
+.status.out .dot {
+    background-color: red;
+}
+
+/* Price column styling */
+td.price {
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: right;
+}
+
+
+/* Chart Section */
+.chart-section {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 100%; /* กำหนดความกว้างเต็มพื้นที่ */
+    box-sizing: border-box; /* ให้ padding ไม่เกินขอบ container */
+}
+
+.chart-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.products-and-chart {
+    display: flex;
+    gap: 20px; /* ระยะห่างระหว่างตารางกับกราฟ */
+    margin: 20px 0; /* ระยะห่างด้านบนและล่าง */
+}
+
+
+
+/* Canvas Styling */
+.chart-section canvas {
+    display: block; /* แก้ไขค่าเริ่มต้นของ canvas */
+    width: 100%; /* ขยายเต็มความกว้าง */
+    height: auto; /* ให้ความสูงปรับอัตโนมัติตามอัตราส่วน */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+        padding: 10px;
+    }
+
+    .header .search-bar {
+        width: 200px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+}

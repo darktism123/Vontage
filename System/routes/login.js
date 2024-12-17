@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
             req.session.customerId = user.customer_id;
 
             // Redirect to homepage with success message
-            res.send("<script>alert('Login successful!'); window.location.href = '/homepage.html';</script>");
+            res.send("<script>alert('Login successful!'); window.location.href = '/';</script>");
         });
     });
 });
